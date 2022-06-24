@@ -27,7 +27,7 @@
             background-color: #D9D9D9;
             width: 90%;
             height: auto;
-            border-radius: 40px;
+            border-radius: 20px;
             margin: 40px;
             padding: 20px;
         }
@@ -92,6 +92,8 @@
         #bloqueReseñas1 {
             display: flex;
             align-self: center;
+            align-items: center;
+            justify-content: center;
             background-color: #D4F4DB;
             width: 90%;
             height: 350px;
@@ -99,18 +101,44 @@
         }
 
         .reseñas1 {
-            float: left;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            align-items: center;
+            justify-content: center;
             background-color: #2B2729;
             width: 50%;
             height: auto;
             border-radius: 20px;
             margin: 40px;
+            margin-bottom: 10px;
             padding: 20px;
+        }
+
+        .reseñas1 .reseñasEstrellas{
+            display: grid;
+            grid-template-columns: 40px 40px 40px 40px 40px;
+            grid-template-rows: auto;
+            margin-top: -50px;
+            margin-bottom: 20px;
+            background-color: #2B2729;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 3px 2px #4B4B4B;
+        }
+
+        .reseñasEstrellas img{
+            width: 30px;
+        }
+
+        .reseñas1 p{
+            color: #D9D9D9;
+            text-align: center;
         }
 
         /* SECCION 4 */
         .seccion-cuarto {
-            height: 550px;
+            height: 600px;
         }
 
         #bloqueReseñas2 {
@@ -118,27 +146,66 @@
             align-self: center;
             background-color: #2B2729;
             width: 90%;
-            height: 450px;
+            height: 500px;
             border-radius: 40px;
         }
 
         .reseñas2 {
-            float: left;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            align-items: center;
+            justify-content: center;
             background-color: #D9D9D9;
             width: 30%;
             height: auto;
             border-radius: 20px;
             margin: 40px;
+            margin-bottom: 10px;
             padding: 20px;
         }
 
-        .bloqueEstrellas:hover,
-        #leyendaReseña:hover,
+        .reseñas2 p{
+            text-align: center;
+        }
+
+        .reseñas2 .reseñasEstrellas{
+            display: grid;
+            grid-template-columns: 40px 40px 40px 40px 40px;
+            grid-template-rows: auto;
+        }
+
+        .redSocialReseña {
+            border-radius: 180px;
+            background-color: #2B2729;
+            margin-bottom: 20px;
+            margin-top: -60px;
+        }
+
+        .redSocialReseña img{
+            width: 100px;
+        }
+
+        blockquote p::before{
+            content: "«";
+        }
+
+        blockquote p::after{
+            content: "»";
+        }
+
+        P.nombreCliente{
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        #leyendaNewReseña:hover,
+        #valoracion .bloqueEstrellas:hover,
         .contenedores:hover,
         .reseñas1:hover,
         .reseñas2:hover {
-            transform: translate(0px, 2px);
-            transform: scale(1.1, 1.1);
+            transform: scale(1.05);
+            transition: 0.5s;
         }
 
         /* SECCION 5 */
@@ -150,7 +217,6 @@
             border-radius: 40px;
             border: 0;
             padding: 40px;
-            padding-left: 45px;
         }
 
         #leyendaNewReseña {
@@ -255,14 +321,14 @@
 
                         <div id="valoracionTotal">
 
-                            <h2 style="font-size: 50pt; margin: 10px 0px 0px 0px;">4.5</h2>
+                            <h2 style="font-size: 40pt; margin: 10px 0px 0px 0px;">4.5</h2>
 
                             <div class="bloqueEstrellas">
-                                <img src="img/estrella.png" alt="1estrella" width="50px">
-                                <img src="img/estrella.png" alt="1estrella" width="50px">
-                                <img src="img/estrella.png" alt="1estrella" width="50px">
-                                <img src="img/estrella.png" alt="1estrella" width="50px">
-                                <img src="img/mediaEstrella.png" alt="1estrella" width="50px">
+                                <img src="img/estrella.png" alt="estrella1" width="50px">
+                                <img src="img/estrella.png" alt="estrella2" width="50px">
+                                <img src="img/estrella.png" alt="estrella3" width="50px">
+                                <img src="img/estrella.png" alt="estrella4" width="50px">
+                                <img src="img/mediaEstrella.png" alt="estrellamedia" width="50px">
                             </div>
 
                             <p>583 reseñas en total</p>
@@ -298,14 +364,41 @@
                 <div id="bloqueReseñas1">
 
                     <div class="reseñas1">
-                        <p id="nombreProducto">PRODUCTO</p>
-                        <p>ESTRELLAS</p>
-                        <p>RESENIA</p>
-                        <p id="nombreCliente">- Pablo Arauz</p>
+
+                        <div class="reseñasEstrellas">
+                            <img src="img/estrella.png" alt="estrella1">
+                            <img src="img/estrella.png" alt="estrella2">
+                            <img src="img/estrella.png" alt="estrella3">
+                            <img src="img/estrella.png" alt="estrella4">
+                            <img src="img/vaciaEstrella.png" alt="estrellamedia">
+                        </div>
+
+                        <div class="textoReseñas">
+                            <blockquote>
+                                <p>Recibí el producto muy bien empaquetado y protegido. Me llegó en perfectas condiciones. En realidad me quedo muy contento, 
+                                    no solamente con el producto, sino con el servicio que ofrecen.</p>
+                            </blockquote>
+                            <p class="nombreCliente">- Michel Doinel</p>
+                        </div>
+                        
                     </div>
 
                     <div class="reseñas1">
 
+                        <div class="reseñasEstrellas">
+                            <img src="img/estrella.png" alt="estrella1">
+                            <img src="img/estrella.png" alt="estrella2">
+                            <img src="img/estrella.png" alt="estrella3">
+                            <img src="img/estrella.png" alt="estrella4">
+                            <img src="img/estrella.png" alt="estrella5">
+                        </div>
+
+                        <div class="textoReseñas">
+                            <blockquote>
+                                <p>La opción de pago contrareembolso fue decisiva para mi. Hice un pedido y lo pagué una vez recibido. Esta es una excelente estrategia y un plus para las personas que desconfiamos aun de las compras online.</p>
+                            </blockquote>
+                            <p class="nombreCliente">- Delmira Agustini</p>
+                        </div>
                     </div>
                 </div>
 
@@ -319,18 +412,70 @@
                 <div id="bloqueReseñas2">
 
                     <div class="reseñas2">
-                        <p id="nombreProducto">PRODUCTO</p>
-                        <p>ESTRELLAS</p>
-                        <p>RESENIA</p>
-                        <p id="nombreCliente">- Pablo Arauz</p>
+
+                        <div class="redSocialReseña">
+                            <img src="img/fb.png" alt="facebook">
+                        </div>
+
+                        <div class="reseñasEstrellas">
+                            <img src="img/estrella.png" alt="estrella1">
+                            <img src="img/estrella.png" alt="estrella2">
+                            <img src="img/estrella.png" alt="estrella3">
+                            <img src="img/estrella.png" alt="estrella4">
+                            <img src="img/estrella.png" alt="estrella5">
+                        </div>
+
+                        <div class="textoReseñas">
+                            <blockquote>
+                                <p>Los conocí en la red social Facebook y contacté con ellos por Messenger. Aunque me contestó un bot, me guió 
+                                    bastante bien en todo lo que solicitaba. Finalmente realicé mi pedido y quedé encantada con el producto.</p>
+                            </blockquote>
+                            <p class="nombreCliente">- Beatriz Pinzón</p>
+                        </div>
                     </div>
 
                     <div class="reseñas2">
+                        <div class="redSocialReseña">
+                            <img src="img/ig.png" alt="instagram">
+                        </div>
 
+                        <div class="reseñasEstrellas">
+                            <img src="img/estrella.png" alt="estrella1">
+                            <img src="img/estrella.png" alt="estrella2">
+                            <img src="img/estrella.png" alt="estrella3">
+                            <img src="img/estrella.png" alt="estrella4">
+                            <img src="img/estrella.png" alt="estrella5">
+                        </div>
+
+                        <div class="textoReseñas">
+                            <blockquote>
+                                <p>Una amiga me recomendó su página de Instagram y me encantó lo que vi! Hicieron un trabajo increíble en mi 
+                                    pedido y me quedé muy impresionada con la calidad del producto. Sin duda, volveré a comprar aquí la próxima vez que necesite sublimados.</p>
+                            </blockquote>
+                            <p class="nombreCliente">- Armando Mendoza</p>
+                        </div>
                     </div>
 
                     <div class="reseñas2">
+                        <div class="redSocialReseña">
+                            <img src="img/tw.png" alt="twitter">
+                        </div>
 
+                        <div class="reseñasEstrellas">
+                            <img src="img/estrella.png" alt="estrella1">
+                            <img src="img/estrella.png" alt="estrella2">
+                            <img src="img/estrella.png" alt="estrella3">
+                            <img src="img/estrella.png" alt="estrella4">
+                            <img src="img/estrella.png" alt="estrella5">
+                        </div>
+
+                        <div class="textoReseñas">
+                            <blockquote>
+                                <p>Me encanta este lugar porque los diseños son muy detallados y se ven increíbles en las piezas de ropa. 
+                                    También me gusta el hecho de que puedes personalizar los diseños para que se ajusten a tus necesidades.</p>
+                            </blockquote>
+                            <p class="nombreCliente">- Marcela Valencia</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -346,19 +491,15 @@
                         <legend id="leyendaNewReseña">¡Tu también puedes escribir una reseña!</legend>
 
                         <div id="datosNewReseña">
-                            <p><b>Nombre:</b> <input type="text" name="nombre" id="nombre" class="caja"></p>
-                            <p><b>Email:</b> <input type="email" name="email" id="email" class="caja"></p>
-                            <p><b>Producto:</b>
+                            <p><b>Nombre:</b> <input type="text" name="nombre" id="nombre" placeholder="Escribe tus nombres." class="caja"></p>
+                            <p><b>Email:</b> <input type="email" name="email" id="email"  placeholder="Escribe tu email."class="caja"></p>
+                            <p><b>Valoración:</b>
                                 <select name="producto" class="caja" style="height: 40px; margin-top: 10px;">
-                                    <option>Coccvxche</option>
-                                    <option>Avisacsccccasón</option>
-                                    <option>Trecxxcn</option>
-                                    <option>Coccvxche</option>
-                                    <option>Avisacsccccasón</option>
-                                    <option>Trecxxcn</option>
-                                    <option>Coccvxche</option>
-                                    <option>Avisacsccccasón</option>
-                                    <option>Trecxxcn</option>
+                                    <option>5 estrellas</option>
+                                    <option>4 estrellas</option>
+                                    <option>3 estrellas</option>
+                                    <option>2 estrellas</option>
+                                    <option>1 estrella</option>
                                 </select>
                             </p>
                             <p id="textoAdicional" style="font-size: 9pt;">*Todos los campos son obligatorios.</p>
@@ -366,7 +507,7 @@
 
                         <div id="areaNewReseña">
                             <p><b>Reseña:</b></p>
-                            <p><textarea id="nuevaReseña" name="nuevaReseña" cols="5" rows="5" class="caja"
+                            <p><textarea id="nuevaReseña" name="nuevaReseña" cols="5" rows="5" class="caja" placeholder="Escribe tu reseña." 
                                     style="width: 500px; height: auto; resize: none;"></textarea></p>
                             <p><input type="submit" id="enviarReseña" value="ENVIAR RESEÑA"></p>
                         </div>
