@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <title>INICIO</title>
     <style>
+        *{
+            font-family: 'Inter', sans-serif;
+        }
         .bloque{
             width: 90%;
             height: 350px;
@@ -97,6 +100,40 @@
             transform: scale(1.05);
             transition: 0.5s;
         }
+        #bloque-dos-primero{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #bloque-dos-primero > figure{
+            color: white;
+        }
+        #bloque-dos-segundo{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        a[href^="YanezPaula.html"]{
+            color: blue;
+            text-decoration: none;
+        }
+        p::first-letter{
+            font-size: 24px;
+            font-weight: bold
+        }
+        .bloque-tres div + div{
+            display: flex  !important;
+            flex-direction: column  !important;
+            justify-content: center  !important;
+            align-items: center  !important;
+        }
+        .bloque-tres div h3 ~ p{
+            text-align: justify;
+            width: 500px;
+        }
+
     </style>
 </head>
 <body>
@@ -128,7 +165,7 @@
                         <p id="parrafo" style="width: 400px; color: #4B4B4B; text-align: justify;">
                             Bienvenido Usuario a nuestra web donde podras conocer los servicios que ofrecemos y ademas los productos disponibles.
                             y a su vez algunas reseñas de compradores satisfechos.    
-                        <br><br>Una nueva forma de vestir, con elegancia y sobretodo a tu gusto! 
+                        <br><br><span style="font-weight: bold;">Una nueva forma de vestir, con elegancia y sobretodo a tu gusto!</span> 
                         </p>
                     </div>
                    <div class="seccion-uno-derecho">
@@ -149,32 +186,71 @@
                             No lo pienses mas! Somos una empresa dedicada a generar el
                             mejor sublimado existente del Ecuador, brindando un servicio
                             personalizado y de muy buena calidad al igual que nuestros productos.
-                            Somos innovacion, utilizando los mejores materiales para la confeccion
+                           <strong> Somos innovacion </strong>, utilizando los mejores materiales para la confeccion
                             y detallado de la diversidad de productos que proveemos a nuestra comunidad.
                         </p>
                     </div>
-                    <div>
-                        
+                    <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+                        <img style="border-radius: 10px; width: 270px; height:240px ;" src="img/t-shirt.jpg" alt="">
                     </div>
                 </div>
             </section>
             <section class="seccion-tercero">
                 <div class="bloque bloque-dos">
-                    <div></div>
-                    <div></div>
+                    <div id="bloque-dos-primero">
+                        <figure>
+                            <img style="width: 220px; height:210px ; border-radius: 10px;" src="img/chinese_design.jpg" alt=""/>
+                            <figcaption>
+                                Camisa mas vendida este año
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                    <div  id="bloque-dos-segundo">
+                        <h2 style="color: white;">DESTACADOS</h2>
+                        <h4 style="color: white; width:300px; text-align: justify;">Somos numero uno en Ventas a domicilio y con insignia de 
+                        servicio y presentacion exlusiva.
+                        Los primeros en realizar sublimados de alta gama con materiales de calidad y a un precio 
+                        adecuado para tu bolsillo!
+                        </h4>
+                    </div>
                 </div>
             </section>
             <section class="seccion-cuarto">
                 <div class="bloque bloque-tres">
-                    <div></div>
-                    <div></div>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <figure>
+                            <img style="width: 220px; height:210px ; border-radius: 10px;" src="img/anime_design.jpg" alt=""/>
+                            <figcaption>
+                                Camisa mas vendida este año
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div>
+                        <h3>VARIEDAD</h3>
+                        <p>
+                            Tenemos Gran variedad de productos, desde camisas hasta tazas personalizadas a tu gusto
+                            o diseños predeterminados para eescoger.
+                            Ademas contamos con servicios exclusivos tanto a domicilio como
+                            atencion personalzada y sepracion de montos para eventos.
+                            puedes ver mas de estos beneficios en el siguiente <em> <a href="YanezPaula.html">enlace</a></em>
+                        </p>
+                    </div>
                 </div>
             </section>
             <section class="seccion-quinto">
                 <div class="bloque bloque-cuatro">
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                    <div>
+
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <figure>
+                            <img style="width: 220px; height:210px ; border-radius: 10px;" src="img/make_designnjpg.jpg" alt=""/>
+                        </figure>
+                    </div>
+                    <div>
+                        
+                    </div>
                 </div>
             </section>
         </main>
