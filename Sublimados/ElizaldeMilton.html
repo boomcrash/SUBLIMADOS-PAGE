@@ -123,17 +123,32 @@
             font-size: 24px;
             font-weight: bold
         }
-        .bloque-tres div + div{
-            display: flex  !important;
-            flex-direction: column  !important;
-            justify-content: center  !important;
-            align-items: center  !important;
-        }
-        .bloque-tres div h3 ~ p{
-            text-align: justify;
-            width: 500px;
-        }
 
+        #parrafo-one{
+            text-align: justify; width: 80%; height: 50%;
+        }
+        #imagen-shirt{
+            border-radius: 10px; width: 65%; height:90% ;
+        }
+        @media (max-width:777px) {
+            #parrafo-one{
+                position: relative;
+                font-size: 12px;
+                margin-top: -70px;
+            }
+            #imagen-shirt{
+            border-radius: 10px; width: 65%; height:40% ;
+        }
+          
+        }
+        @media (max-width:400px) {
+            #parrafo-one{
+                position: relative;
+                font-size: 9px;
+                margin-top: -70px;
+            }
+          
+        }
     </style>
 </head>
 <body>
@@ -162,7 +177,7 @@
                     margin-right:auto ;">
                         <h2 id="encabezado">SUBLIMADOS</h2>
                         <h3  style="margin-top: -10px;">SUPERIUM</h3>
-                        <p id="parrafo" style="width: 400px; color: #4B4B4B; text-align: justify;">
+                        <p id="parrafo" >
                             Bienvenido Usuario a nuestra web donde podras conocer los servicios que ofrecemos y ademas los productos disponibles.
                             y a su vez algunas reseñas de compradores satisfechos.    
                         <br><br><span style="font-weight: bold;">Una nueva forma de vestir, con elegancia y sobretodo a tu gusto!</span> 
@@ -182,7 +197,7 @@
             <section class="seccion-segundo">
                 <div class="bloque bloque-uno">
                     <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
-                        <p style="text-align: justify; width: 500px; ">    
+                        <p id="parrafo-one">    
                             No lo pienses mas! Somos una empresa dedicada a generar el
                             mejor sublimado existente del Ecuador, brindando un servicio
                             personalizado y de muy buena calidad al igual que nuestros productos.
@@ -191,15 +206,15 @@
                         </p>
                     </div>
                     <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
-                        <img style="border-radius: 10px; width: 270px; height:240px ;" src="img/t-shirt.jpg" alt="">
+                        <img id="imagen-shirt" src="img/t-shirt.jpg" alt="">
                     </div>
                 </div>
             </section>
             <section class="seccion-tercero">
                 <div class="bloque bloque-dos">
                     <div id="bloque-dos-primero">
-                        <figure>
-                            <img style="width: 220px; height:210px ; border-radius: 10px;" src="img/chinese_design.jpg" alt=""/>
+                        <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                            <img style="width: 99%; height:65% ; border-radius: 10px;" src="img/chinese_design.jpg" alt="shirt"/>
                             <figcaption>
                                 Camisa mas vendida este año
                             </figcaption>
@@ -219,8 +234,8 @@
             <section class="seccion-cuarto">
                 <div class="bloque bloque-tres">
                     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                        <figure>
-                            <img style="width: 220px; height:210px ; border-radius: 10px;" src="img/anime_design.jpg" alt=""/>
+                        <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                            <img style="width: 99%; height:65%; border-radius: 10px;" src="img/anime_design.jpg" alt=""/>
                             <figcaption>
                                 Camisa mas vendida este año
                             </figcaption>
@@ -244,8 +259,8 @@
 
                     </div>
                     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                        <figure>
-                            <img style="width: 220px; height:210px ; border-radius: 10px;" src="img/make_designnjpg.jpg" alt=""/>
+                        <figure style="display: flex; flex-direction: column; justify-content: center; align-items: center;"">
+                            <img style="width: 99%; height:70%  ; border-radius: 10px;" src="img/make_designnjpg.jpg" alt=""/>
                         </figure>
                     </div>
                     <div>
