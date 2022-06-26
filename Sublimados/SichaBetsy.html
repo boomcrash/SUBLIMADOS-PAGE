@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* ESTILO INTERNO */
+        /* SELECTOR UNIVERSAL */
+        *{
+            font-family: Inter;
+        }
         /* SELECTOR POR ELEMENTO */
         p, h2{
             text-align: center;
@@ -14,10 +18,6 @@
         }
         h6{
             text-align: right;
-        }
-        /* SELECTOR UNIVERSAL */
-        *{
-            font-family: Inter;
         }
         /* SELECTOR DE CLASE */
         .dividir-seccion-uno{
@@ -73,7 +73,7 @@
             align-items: center;
             flex-direction: column;
         }
-        /* SELECTOR DE CLASE MÁS ESPECÍFICO */
+        /* SELECTOR DE PSEUDOCLASE */
         .dividir-seccion-uno div:nth-child(1){
             border-radius: 20px;
             width: 80%;
@@ -259,6 +259,20 @@
             text-align: justify;
             width: 400px;
         }
+        /*SELECTOR DE COMBINADOR: DESCENDIENTES*/
+        div span{
+            background-color:#D4F4DB;
+            border-radius: 5px;
+        }
+        /*SELECTOR DE PSEUDOELEMENTOS: FIRST LETTER*/
+        p::first-letter{
+            font-size: 20px;
+        }
+        /* SELECTOR DE ATRIBUTO: IGUAL A */
+        h2[class="Titulos"]
+        {
+            color: #000000;
+        }
         @media (max-width:810px){
             #CYAC, #GRRSC, #TZC, #BLC{
                 width: 300px;
@@ -316,7 +330,7 @@
                 <div id="arriba" class="dividir-seccion-uno">                   
                     <div > 
                         <div id="introduccion">                            
-                            <h2 style="margin: 5px 0 0 0; font-size: 24px;" id="INT"> <b> PRODUCTOS DISPONIBLES </b> </h2>   <br>                         
+                            <h2 style="margin: 5px 0 0 0; font-size: 24px;" id="INT" class="Titulos"> <b> PRODUCTOS DISPONIBLES </b> </h2> <br>                         
                             <p style="margin: 5px 0 0 0;"> A Continuación presentamos todos los productos disponibles en  <br>
                                 Sublimados Superium brindandoles comodidad, variedad y opciones innovadoras  <br>
                                 para su elección, ofreciendoles una experiencia única y satisfactoria con nuestros productos.   <br>
@@ -345,7 +359,7 @@
                     <div>
                         <figure style="float: right;">
                             <img style="border-radius: 20px;" src="img/LogoProducto.PNG">
-                            <figcaption style="text-align: right; font-size: 9px;"> Logo </figcaption>
+                            <figcaption style="text-align: right; font-size: 9px;"> Sublimados Superium </figcaption>
                         </figure>
                     </div>
                 </div>
@@ -354,7 +368,7 @@
                 <div class="dividir-seccion-dos">
                     <div>
                         <div id="concepto-dos" >
-                            <h2 id="CYA" > <b> CAMISETAS Y ABRIGOS </b> </h2>                          
+                            <h2 id="CYA" class="Titulos"> <b> CAMISETAS Y ABRIGOS </b> </h2>                          
                             <!--ESTILO EN LÍNEA-->
                             <span id="tallas" style="color: #7dc580"> <i> <b> Tallas: XS, S, M, L, XL, XXL </b></i> </span>
                             <p id="CYAC"> Hacemos estampados a camisetas y abrigos con la imagen de su preferencia, 
@@ -377,7 +391,7 @@
                 <div class="dividir-seccion-tres">
                     <div>
                         <div id="concepto-tres" >
-                            <h2 id="GRRS"> <b> GORRAS </b> </h2>
+                            <h2 id="GRRS" class="Titulos"> <b> GORRAS </b> </h2>
                             <p id="GRRSC"> Hacemos estampados a gorras con la imagen de su preferencia,
                                 Tenemos variedad de colores y modelos para su elección
                             </p>
@@ -399,7 +413,7 @@
                 <div class="dividir-seccion-cuatro">
                     <div>
                         <div id="concepto-cuatro" >
-                            <h2 id="TZ"> <b> TAZAS </b> </h2>                        
+                            <h2 id="TZ" class="Titulos"> <b> TAZAS </b> </h2>                        
                             <p id="TZC"> Hacemos estampados a tazas con la imagen de su preferencia,
                                 Tenemos  variedad de modelos, juegos y colores para su elección
                             </p>
@@ -420,7 +434,7 @@
                 <div class="dividir-seccion-cinco">
                     <div>
                         <div id="concepto-cinco" >
-                            <h2 id="BL"> <b> BOLSOS </b> </h2>                        
+                            <h2 id="BL" class="Titulos"> <b> BOLSOS </b> </h2>                        
                             <p id="BLC"> Hacemos estampados a bolsos con la imagen de su preferencia,
                                 Tenemos variedad de colores para su elección y diferentes modelos de bolsos
                             </p>
