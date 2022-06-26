@@ -164,6 +164,9 @@ footer :nth-child(3){
     transition:  transform 1s linear;
     transition-delay: 0.5s;
 }
+#parrafo{
+    width: 400px; color: #4B4B4B; text-align: justify;
+}
 /*diseño responsivo para distintas medidas*/
 @media (max-width:900px)
 {
@@ -196,19 +199,17 @@ footer :nth-child(3){
         width: 55px;
     }
     #encabezado{
-        margin-top: 20px !important;
+        margin-top: 20px ;
     }
-    #parrafo{
-        font-size: 12px !important;
-        width: 300px !important;
-        margin-left: 50px !important;
-    }
+
     .seccion-primero{
         height:250px ;
     }
-
+    #parrafo{
+        width: 350px; color: #4B4B4B; text-align: justify;
+    }
 }
-@media (max-width:390px)
+@media (max-width:450px)
 {
     .nav-botones a{
         font-size: 5px;
@@ -225,12 +226,12 @@ footer :nth-child(3){
         display: none;
     }
     #parrafo{
-        display: none !important;
+        display: none;
     }
     .seccion-primero{
         height:150px ;
     }
     #encabezado{
-        margin-top: 50px !important;
+        margin-top: 50px ;
     }
 }
