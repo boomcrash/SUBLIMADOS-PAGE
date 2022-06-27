@@ -9,27 +9,34 @@
     <title>RESEÑAS</title>
     <style>
         /* SECCION 2 */
+        .seccion-segundo{
+            height: auto;
+        }
+
         #contenedorValoracion {
             display: flex;
             align-items: center;
             align-self: center;
             justify-content: center;
+            flex-wrap: wrap;
             background-color: #2B2729;
             width: 90%;
-            height: 350px;
+            height: 70%;
             border-radius: 40px;
+            margin: 60px;
         }
 
         #valoracion {
             display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
             align-self: center;
-            justify-content: center;
             background-color: #D9D9D9;
             width: 90%;
-            height: auto;
-            border-radius: 20px;
+            height: 70%;
+            border-radius: 10px;
             margin: 40px;
-            padding: 20px;
         }
 
         #valoracionTotal {
@@ -38,10 +45,8 @@
             justify-content: center;
             align-self: center;
             align-items: center;
-            width: 40%;
-            height: auto;
-            padding-right: 20px;
-            border-right: #2B2729 solid 1px;
+            width: 300px;
+            margin: 20px;
         }
 
         .bloqueEstrellas {
@@ -60,8 +65,8 @@
             justify-content: center;
             align-items: center;
             align-self: center;
-            width: 60%;
-            height: auto;
+            width: 500px;
+            margin: 20px;
         }
 
         #valoracionPorEstrella p {
@@ -69,8 +74,7 @@
         }
 
         #bloqueNumeroEstrellas {
-            float: left;
-            margin-left: -220px;
+            margin-left: -230px;
         }
 
         #bloqueNumeroEstrellas p {
@@ -88,20 +92,37 @@
 
         meter::-webkit-meter-bar {
             background: white;
-            width: 30px;
+            width: 300px;
             height: 20px;
         }
 
         /* SECCION 3 */
+        .seccion-tercero{
+            flex-direction: column;
+            height: auto;
+        }
+
         #bloqueReseñas1 {
             display: flex;
             align-self: center;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
             background-color: #D4F4DB;
             width: 90%;
-            height: 350px;
+            height: 70%;
             border-radius: 40px;
+            padding-top: 10px;
+            padding-bottom: 30px;
+            margin-bottom: 60px;
+        }
+
+        h2.reseña{
+            margin: 60px 0 60px 0;
+            padding: 20px 0 20px 0;
+            border-top: #2B2729 solid 1px;
+            border-bottom: #2B2729 solid 1px;
+            text-align: center;
         }
 
         .reseñas1 {
@@ -111,11 +132,10 @@
             align-items: center;
             justify-content: center;
             background-color: #2B2729;
-            width: 50%;
+            width: 480px;
             height: auto;
             border-radius: 20px;
-            margin: 40px;
-            margin-bottom: 10px;
+            margin: 60px 40px 20px 40px;
             padding: 20px;
         }
 
@@ -127,8 +147,9 @@
             margin-bottom: 20px;
             background-color: #2B2729;
             padding: 20px;
-            border-radius: 20px;
+            border-radius: 10px;
             box-shadow: 3px 2px #4B4B4B;
+            justify-items: center;
         }
 
         .reseñasEstrellas img {
@@ -142,16 +163,22 @@
 
         /* SECCION 4 */
         .seccion-cuarto {
-            height: 600px;
+            flex-direction: column;
+            height: auto;
         }
 
         #bloqueReseñas2 {
             display: flex;
             align-self: center;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
             background-color: #2B2729;
             width: 90%;
-            height: 500px;
+            height: 70%;
             border-radius: 40px;
+            padding: 30px 10px 30px 10px;
+            margin-bottom: 60px;
         }
 
         .reseñas2 {
@@ -161,11 +188,10 @@
             align-items: center;
             justify-content: center;
             background-color: #D9D9D9;
-            width: 30%;
+            width: 270px;
             height: auto;
-            border-radius: 20px;
-            margin: 40px;
-            margin-bottom: 10px;
+            border-radius: 10px;
+            margin: 60px 40px 30px 40px;
             padding: 20px;
         }
 
@@ -177,6 +203,7 @@
             display: grid;
             grid-template-columns: 40px 40px 40px 40px 40px;
             grid-template-rows: auto;
+            justify-items: center;
         }
 
         .redSocialReseña {
@@ -213,14 +240,21 @@
         }
 
         /* SECCION 5 */
+        .seccion-quinto {
+            height: auto;
+        }
+
         #bloqueNewReseña {
             display: flex;
+            flex-wrap: wrap;
             background-color: #D4F4DB;
             width: 90%;
+            height: auto;
             color: rgb(0, 0, 0);
             border-radius: 40px;
-            border: 0;
+            border: 0px;
             padding: 40px;
+            margin: 60px 0px 60px 0px;
         }
 
         #leyendaNewReseña {
@@ -232,20 +266,21 @@
         }
 
         #datosNewReseña {
-            width: 40%;
             display: grid;
             grid-template-columns: 100px 200px;
-            grid-template-rows: 40px 40px 40px;
+            grid-template-rows: 40px 40px 40px 20px;
             margin-right: 40px;
         }
 
         #areaNewReseña {
-            width: 60%;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
         }
 
         .caja {
             border: 0;
-            border-radius: 10px;
+            border-radius: 5px;
             height: 20px;
             padding: 5px;
             padding-inline-start: 15px;
@@ -258,6 +293,10 @@
             color: black;
         }
 
+        #boton{
+            margin-right: -45px;
+        }
+
         form input[type="submit"] {
             float: right;
             background-color: black;
@@ -267,6 +306,7 @@
             border: 0;
             color: white;
             cursor: pointer;
+            margin-top: 20px;
         }
     </style>
 
@@ -335,19 +375,19 @@
 
                         <div id="valoracionPorEstrella">
                             <div id="bloqueNumeroEstrellas">
-                                <p>5 estrellas (400/583)</p>
-                                <p>4 estrellas (170/583)</p>
-                                <p>3 estrellas (10/583)</p>
-                                <p>2 estrellas (3/583)</p>
-                                <p>1 estrella (0/583)</p>
+                                <p>5 estrellas</p>
+                                <p>4 estrellas</p>
+                                <p>3 estrellas</p>
+                                <p>2 estrellas</p>
+                                <p>1 estrella</p>
                             </div>
 
                             <div id="bloqueBarras">
-                                <meter class="barraValoracion" max="583" value="400" title="estrellas"></meter> <br>
-                                <meter class="barraValoracion" max="583" value="170" title="estrellas"></meter> <br>
-                                <meter class="barraValoracion" max="583" value="10" title="estrellas"></meter> <br>
-                                <meter class="barraValoracion" max="583" value="3" title="estrellas"></meter> <br>
-                                <meter class="barraValoracion" max="583" value="0" title="estrellas"></meter>
+                                <meter class="barraValoracion" max="583" value="400" title="400/583 estrellas"></meter> <br>
+                                <meter class="barraValoracion" max="583" value="170" title="170/583 estrellas"></meter> <br>
+                                <meter class="barraValoracion" max="583" value="10" title="10/583 estrellas"></meter> <br>
+                                <meter class="barraValoracion" max="583" value="3" title="3/583 estrellas"></meter> <br>
+                                <meter class="barraValoracion" max="583" value="0" title="0/583 estrellas"></meter>
                             </div>
                         </div>
                     </div>
@@ -355,7 +395,9 @@
             </section>
 
             <section class="seccion-tercero">
+                <h2 class="reseña">RESEÑAS DE NUESTRO SITIO WEB</h2>
                 <div id="bloqueReseñas1">
+                    
                     <div class="reseñas1">
                         <div class="reseñasEstrellas">
                             <img src="img/estrella.png" alt="estrella1">
@@ -397,6 +439,7 @@
             </section>
 
             <section class="seccion-cuarto">
+                <h2 class="reseña">RESEÑAS DE NUESTRAS REDES SOCIALES</h2>
                 <div id="bloqueReseñas2">
                     <div class="reseñas2">
                         <div class="redSocialReseña">
@@ -499,7 +542,8 @@
                             <textarea id="nuevaReseña" name="nuevaReseña" cols="5" rows="5" class="caja"
                                 placeholder="Escribe tu reseña."
                                 style="width: 400px; height: auto; resize: none;"></textarea>
-                            <p><input type="submit" id="enviarReseña" value="ENVIAR RESEÑA"></p>
+                            
+                            <div id="boton"><input type="submit" id="enviarReseña" value="ENVIAR RESEÑA"></div>                            
                         </div>
                     </fieldset>
                 </form>
