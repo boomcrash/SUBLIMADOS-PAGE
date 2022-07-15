@@ -74,7 +74,37 @@
 
             </section>
             <section class="seccion-tercero">
+                <form action="#" target="_blank">
+                    <fieldset id="bloqueNewReseña">
+                        <legend id="leyendaNewReseña">¡Tu también puedes escribir una reseña!</legend>
+                        <div id="datosNewReseña">
+                            <p><b>Nombre:</b></p>
+                            <input type="text" name="nombre" id="nombre" placeholder="Escribe tus nombres."
+                                class="caja">
+                            <p><b>Email:</b></p>
+                            <input type="email" name="email" id="email" placeholder="Escribe tu email." class="caja">
+                            <p><b>Valoración:</b></p>
+                            <select name="producto" class="caja" style="height: 40px;">
+                                <option>5 estrellas</option>
+                                <option>4 estrellas</option>
+                                <option>3 estrellas</option>
+                                <option>2 estrellas</option>
+                                <option>1 estrella</option>
+                            </select>
+                            <p style="font-size: 9pt; grid-row: 5; grid-column: 1/3;">*Todos los campos son
+                                obligatorios.</p>
+                        </div>
 
+                        <div id="areaNewReseña">
+                            <p style="margin-bottom: 0px;"><b>Reseña:</b></p>
+                            <textarea id="nuevaReseña" name="nuevaReseña" cols="5" rows="5" class="caja"
+                                placeholder="Escribe tu reseña."
+                                style="width: 400px; height: auto; resize: none;"></textarea>
+                            
+                            <div id="boton"><input type="submit" id="enviarReseña" value="ENVIAR RESEÑA"></div>                            
+                        </div>
+                    </fieldset>
+                </form>
             </section>
             <section class="seccion-cuarto">
 
