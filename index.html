@@ -142,7 +142,6 @@
         }
         /*selector atributo*/
         a[href^="YanezPaula.html"]{
-            color: blue;
             text-decoration: none;
         }
          /*selector pseudoelemento*/
@@ -222,21 +221,41 @@
 <body>
     <div class="contenedor-principal">
         <header>
-            <h2 class="titulo">SUBLIMADOS SUPERIUM</h2>
+            <nav>
+                <img src="img/logotipo.png" alt="logo" class="nav-logo">
+                    
+                <ul class="nav-botones">
+                    <li class="boton1"><a href="index.html">INICIO</a></li>
+                    <li class="boton2">
+                        <a href="YanezPaula.html">SERVICIOS</a>
+                        <ul>
+                            <a href="ElizaldeMilton2.html" class="submenu submenu1">A domicilio</a>
+                            <a href="YanezPaula2.html" class="submenu submenu2">Internacional</a> 
+                        </ul>
+                    </li>
+                    <li class="boton3">
+                        <a href="SichaBetsy.html">PRODUCTOS</a>
+                        <ul>
+                            <a href="SichaBetsy2.html" class="submenu submenu3">Crear Diseño</a>
+                        </ul>
+                    </li>
+                    <li class="boton4">
+                        <a href="ApraezEmely.html">RESEÑAS</a>
+                        <ul>
+                            <a href="ApraezEmely2.html" class="submenu submenu4">Dejar Reseña</a>
+                        </ul>
+                    </li>
+                    <li class="boton5">
+                        <a href="QuitoRuth.html">CONTACTO</a>
+                        <ul>
+                            <a href="QuitoRuth2.html" class="submenu submenu5">Escribenos!</a>
+                        </ul>
+                    </li>  
+                </ul>
+                
+            </nav>
         </header>
         
-        <nav>
-            <img src="img/logotipo.png" alt="logo" class="nav-logo">
-                
-            <div class="nav-botones">
-                <a href="index.html">INICIO</a>
-                <a href="YanezPaula.html">SERVICIOS</a>
-                <a href="SichaBetsy.html">PRODUCTOS</a>
-                <a href="ApraezEmely.html">RESEÑAS</a>
-                <a href="QuitoRuth.html">CONTACTO</a>
-            </div>
-            
-        </nav>
     
         <main>
             <section class="seccion-primero">
@@ -326,17 +345,17 @@
                 <div class="bloque bloque-cuatro">
                     <div>
                         <figure style=" width: 80%; height:70%  ; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                            <img style="width: 80%; height:95% ; ; border-radius: 10px;" src="img/logo_shirt.jpg" alt="make"/>
+                            <img class="imagen-change" id="img-uno" style="width: 80%; height:95% ; ; border-radius: 10px;" src="img/logo_shirt.jpg" alt="make"/>
                         </figure>
                     </div>
                     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
                         <figure style=" width: 80%; height:70%  ; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                            <img style="width: 80%; height:95% ; ; border-radius: 10px;" src="img/make_designnjpg.jpg" alt="make"/>
+                            <img class="imagen-change" id="img-dos" style="width: 80%; height:95% ; ; border-radius: 10px;" src="img/make_designnjpg.jpg" alt="make"/>
                         </figure>
                     </div>
                     <div>
                         <figure style=" width: 80%; height:70%  ; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                            <img style="width: 80%; height:95% ;  ; border-radius: 10px;" src="img/bad_shirt.png" alt="make"/>
+                            <img class="imagen-change" id="img-tres" style="width: 80%; height:95% ;  ; border-radius: 10px;" src="img/bad_shirt.png" alt="make"/>
                         </figure>
                     </div>
                 </div>
@@ -353,6 +372,43 @@
             </div>
         </footer>
     </div>
+
+    <script>
+        var nodo=document.querySelectorAll(".imagen-change");
+        var img_uno=document.getElementById("img-uno");
+        var img_dos=document.getElementById("img-dos");
+        var img_tres=document.getElementById("img-tres");
+        img_uno.addEventListener("mouseover",() =>cambiarImagen(nodo[0]));
+        img_dos.addEventListener("mouseover",() =>cambiarImagen(nodo[1]));
+        img_tres.addEventListener("mouseover",() =>cambiarImagen(nodo[2]));
+
+        img_uno.addEventListener("mouseout",normalizarImagen);
+        img_dos.addEventListener("mouseout",normalizarImagen);
+        img_tres.addEventListener("mouseout",normalizarImagen);
+
+        function cambiarImagen(nodo){
+            if(nodo.id=="img-uno"){
+               
+                img_dos.src="/img/logo-1.jpeg";
+                img_tres.src="/img/logo-2.jpg";  
+            }else if(nodo.id=="img-dos"){
+                
+                img_uno.src="/img/design-1.png"; 
+                img_tres.src="/img/design-2.jpg";  
+            }else if(nodo.id=="img-tres"){
+                
+                img_uno.src="/img/dark-1.jpg";  
+                img_dos.src="/img/dark-2.jpeg";  
+            }
+              
+        }
+
+        function normalizarImagen(){
+            img_uno.src="/img/logo_shirt.jpg";
+            img_dos.src="/img/make_designnjpg.jpg";
+            img_tres.src="/img/bad_shirt.png";  
+        }
+    </script>
     
 </body>
 </html>
