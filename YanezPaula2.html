@@ -1,25 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>INTERNACIONAL</title>
+    <style>
+        body {
+            font-size: 12px;
+            font-family: verdana;
+        }
+
+        #contenedorPrincipal {
+            width: 80%;
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgb(2, 2, 2);
+            /*para centrar un contenedor*/
+
+        }
+
+        #contenedorPrincipal div:hover {
+            transform: scale(1.05);
+            transition: 0.5s;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        #contenedorContenido {
+            color: #333333;
+        }
+
+        .formularios {
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            padding: 10px;
+            background: #D4F4DB;
+            width: 80%;
+            margin: 0 auto;
+            /*para centrar*/
+        }
+
+        .formularios div {
+            padding: 5px;
+        }
+
+        .formularios div:nth-child(2n) {
+            background: #9EE9A1;
+        }
+
+        .mensajeError {
+            color: red;
+            font-size: 9px;
+        }
+
+        #pie {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
 </head>
+
 <body>
     <div class="contenedor-principal">
         <header>
             <nav>
                 <img src="img/logotipo.png" alt="logo" class="nav-logo">
-                    
+
                 <ul class="nav-botones">
                     <li class="boton1"><a href="index.html">INICIO</a></li>
                     <li class="boton2">
                         <a href="YanezPaula.html">SERVICIOS</a>
                         <ul>
                             <a href="ElizaldeMilton2.html" class="submenu submenu1">A domicilio</a>
-                            <a href="YanezPaula2.html" class="submenu submenu2">Internacional</a> 
+                            <a href="YanezPaula2.html" class="submenu submenu2">Internacional</a>
                         </ul>
                     </li>
                     <li class="boton3">
@@ -39,72 +95,120 @@
                         <ul>
                             <a href="QuitoRuth2.html" class="submenu submenu5">Escribenos!</a>
                         </ul>
-                    </li>  
+                    </li>
                 </ul>
-                
+
             </nav>
         </header>
-        
-    
+
+
         <main>
             <section class="seccion-primero">
                 <div class="dividir-seccion-uno">
-                    <div  style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-left: auto;
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; margin-left: auto;
                     margin-right:auto ;">
                         <h2 id="encabezado">ENVIOS INTERNACIONALES</h2>
-                        <h3  style="margin-top: -10px;">SUPERIUM</h3>
-                        <p id="parrafo" >
-                            Bienvenido Usuario a nuestra web donde podras conocer los servicios que ofrecemos y ademas los productos disponibles.
-                            y a su vez algunas reseñas de compradores satisfechos.    
-                        <br><br><span style="font-weight: bold;">Una nueva forma de vestir, con elegancia y sobretodo a tu gusto!</span> 
+                        <h3 style="margin-top: -10px;">SUPERIUM</h3>
+                        <p id="parrafo">
+                            Bienvenido Usuario a nuestra web donde podras conocer los servicios que ofrecemos y ademas
+                            los productos disponibles.
+                            y a su vez algunas reseñas de compradores satisfechos.
+                            <br><br><span style="font-weight: bold;">Una nueva forma de vestir, con elegancia y
+                                sobretodo a tu gusto!</span>
                         </p>
                     </div>
-                   <div class="seccion-uno-derecho">
-                    <div class="circulo" id="circulo-arriba"></div>
-                    <div class="circulo" id="circulo-medio">
-                        <!-- La imagen esta en  128px redondeada (fuente: flaticon.com) -->
-                        <img src="img/inicio.png" alt="incio">
+                    <div class="seccion-uno-derecho">
+                        <div class="circulo" id="circulo-arriba"></div>
+                        <div class="circulo" id="circulo-medio">
+                            <!-- La imagen esta en  128px redondeada (fuente: flaticon.com) -->
+                            <img src="img/inicio.png" alt="incio">
+                        </div>
+                        <div class="circulo" id="circulo-abajo"></div>
                     </div>
-                    <div class="circulo" id="circulo-abajo"></div>
-                   </div>
                 </div>
 
             </section>
             <section class="seccion-segundo">
+                <div id="contenedorPrincipal">
+                    <div id="contenedorContenido">
+                        <h4 class="text-center">¡SOLICITA YA TU PEDIDO!</h4>
+                        <hr>
 
+                        <div class="formularios">
+                            <!-- onsubmit=return validar() PERMITE LLAMAR A LA FUNCION DE JAVASCRIPT QUE VALIDA EL FORMULARIO-->
+                            <form id="formContacto" onsubmit="return validar()">
+                                <div>
+                                    <label>Nombres:&nbsp;&nbsp;</label>
+                                    <input type="text" name="nombres" id="nombres" class="formItem"
+                                        placeholder="Ingrese aqui tu nombre" />
+                                </div>
+                                <div>
+                                    <label>Apellidos:&nbsp;&nbsp;</label>
+                                    <input type="text" name="apellidos" id="apellidos" class="formItem" />
+                                </div>
+                                <div>
+                                    <label>Telefono: &nbsp;</label>
+                                    <input type="text" name="telefono" id="telefono" class="formItem" />
+                                </div>
+                                <div>
+                                    <label>Email:&nbsp; &nbsp; &nbsp;&nbsp;</label>
+                                    <input type="email" name="correo" id="correo" class="formItem" />
+                                </div>
+                                <div>
+                                    <label>Dirección:&nbsp;</label>
+                                    <input type="text" name="direccion" id="direccion" class="formItem" />
+                                </div>
+
+                                <div>
+                                    <label>Genero:</label>
+                                    <input class="gen" id="fem" type="radio" name="genero" id="g1" value="F" />Femenino
+                                    <input class="gen" id="mas" type="radio" name="genero" id="g2" value="M" />Masculino
+                                    <input class="gen" id="otro" type="radio" name="genero" id="g3" value="O" />Otro
+                                </div>
+                                <div>
+                                    <label>Seleccione país de envío:</label>
+                                    <select name="estadoC" id="estadoC" class="formItem">
+                                        <option value="0">Seleccione..</option>
+                                        <option value="1">Panamá</option>
+                                        <option value="2">Chile</option>
+                                        <option value="3">Colombia</option>
+                                        <option value="4">Perú</option>
+                                    </select>
+
+                                </div>
+
+                                <div>
+                                    <label>¿Deseas ser accionista?:</label> </br>
+                                    Si <input type="checkbox" name="suscripcion1" value="1" id="suscripcion1"
+                                        class="formItem sus principal" />
+                                    No<input type="checkbox" name="suscripcion2" value="2" id="suscripcion2"
+                                        class="formItem sus" />
+                                    Necesito más información <input type="checkbox" name="suscripcion3" value="3"
+                                        id="suscripcion3" class="formItem sus" />
+
+
+                                </div>
+                                <div>
+                                    <label>Fecha de emisión:</label>
+                                    <input type="date" name="fecha" id="fecha" class="formItem" />
+                                </div>
+
+                                <div>
+                                    <label>Comentarios</label> <br>
+                                    <textarea class="form-control" id="texto" rows="4" cols="100"
+                                        class="formItem"></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <input type="submit" class="btn btn-primary" value="Enviar">
+                                    <input type="reset" class="btn btn-primary" value="Cancelar">
+                                </div>
+
+                            </form>
+
+                        </div>
             </section>
             <section class="seccion-tercero">
-                <form action="#" target="_blank">
-                    <fieldset id="bloqueNewReseña">
-                        <legend id="leyendaNewReseña">¡Tu también puedes escribir una reseña!</legend>
-                        <div id="datosNewReseña">
-                            <p><b>Nombre:</b></p>
-                            <input type="text" name="nombre" id="nombre" placeholder="Escribe tus nombres."
-                                class="caja">
-                            <p><b>Email:</b></p>
-                            <input type="email" name="email" id="email" placeholder="Escribe tu email." class="caja">
-                            <p><b>Valoración:</b></p>
-                            <select name="producto" class="caja" style="height: 40px;">
-                                <option>5 estrellas</option>
-                                <option>4 estrellas</option>
-                                <option>3 estrellas</option>
-                                <option>2 estrellas</option>
-                                <option>1 estrella</option>
-                            </select>
-                            <p style="font-size: 9pt; grid-row: 5; grid-column: 1/3;">*Todos los campos son
-                                obligatorios.</p>
-                        </div>
 
-                        <div id="areaNewReseña">
-                            <p style="margin-bottom: 0px;"><b>Reseña:</b></p>
-                            <textarea id="nuevaReseña" name="nuevaReseña" cols="5" rows="5" class="caja"
-                                placeholder="Escribe tu reseña."
-                                style="width: 400px; height: auto; resize: none;"></textarea>
-                            
-                            <div id="boton"><input type="submit" id="enviarReseña" value="ENVIAR RESEÑA"></div>                            
-                        </div>
-                    </fieldset>
-                </form>
             </section>
             <section class="seccion-cuarto">
 
@@ -113,17 +217,199 @@
 
             </section>
         </main>
-    
+
         <footer>
             <h4 class="email">sublimados@enterprise.com</h4>
             <h4>Todos los derechos reservados@Copytright - Sublimados</h4>
-            <div> 
+            <div>
                 <a href="https://www.facebook.com"><img src="img/facebook.png" alt="logo" class="nav-logo"></a>
                 <a href="https://www.twitter.com"><img src="img/twitter.png" alt="logo" class="nav-logo"></a>
                 <a href="https://www.instagram.com"><img src="img/instagram.png" alt="logo" class="nav-logo"></a>
             </div>
         </footer>
     </div>
-    
+    <script>
+        //var form = document.getElementById("formContacto");
+
+        //form.addEventListener('submit', validar);
+
+        let cont = 0;
+        function validar() {
+            // variable para retornar
+            var valido = true;
+            // obtencion de los elementos a validar
+            var txtNombres = document.getElementById("nombres");//document.querySelector("input[name='nombres']"); // reotrna el primer input que tenga name ='nombres'
+            var txtApellidos = document.getElementById("apellidos");
+            var txtTelefono = document.getElementById("telefono");
+            var selectEstado = document.getElementById("estadoC");
+            var radiosGenero = document.getElementsByName("genero");//retorna un arreglo;
+            var radio1 = document.getElementById("g1");
+            var chkSuscrip = document.getElementById("suscripcion1");
+            var txtfecha = document.getElementById("fecha");
+            var txtemail = document.getElementById("correo");
+            var txtemail = document.getElementById("direccion");
+
+            var checkboxsSuscripcion = document.getElementsByClassName("sus");// retorna un arreglo
+            //  var checkboxsSuscripcion = document.querySelectorAll(".sus");// retorna un arreglo
+
+            //  var parrafos = document.getElementsByTagName("p");
+
+            var letra = /^[a-z ,.'-]+$/i;// letrasyespacio   ///^[A-Z]+$/i;// solo letras
+            var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            var telefonoreg = /^[0-9]{10}$/g; // para validar datos que deban tener 10 numeros
+
+            //limpiarMensajes();
+
+            //validacion para nombres
+            if (txtNombres.value === "") {
+                valido = false;
+                mensaje("Nombre es requerido", txtNombres);
+            } else if (!letra.test(txtNombres.value)) {
+                valido = false;
+                mensaje("Nombre solo debe contener letras", txtNombres);
+            } else if (txtNombres.value.length > 30) {
+                valido = false;
+                mensaje("Nombre maximo 30 caracteres", txtNombres);
+            }
+
+            // lo mismo para apellidos
+            if (txtApellidos.value === "") {
+                valido = false;
+                mensaje("Nombre es requerido", txtApellidos);
+            } else if (!letra.test(txtApellidos.value)) {
+                valido = false;
+                mensaje("Apellido solo debe contener letras", txtNombres);
+            } else if (txtApellido.value.length > 70) {
+                valido = false;
+                mensaje("Apellido maximo 70 caracteres", txtNombres);
+            }
+            //validacion telefono
+            if (txtTelefono.value === "") {
+                valido = false;
+                mensaje("Telefono es requerido", txtTelefono);
+            } else if (!telefonoreg.test(txtTelefono.value)) {
+                valido = false;
+                mensaje("Telefono debe ser de 10 digitos", txtTelefono);
+            }
+
+            //validacion email
+            if (txtemail.value === "") {
+                valido = false;
+                mensaje("Email es requerido", txtemail);
+            } else if (!correo.test(txtemail.value)) {
+                valido = false;
+                mensaje("Email no es correcto", txtemail);
+            }
+
+            //Validacion direccion
+            if (txtDireccion.value === "") {
+                valido = false;
+                mensaje("Nombre es requerido", txtDireccion);
+            } else if (txtDireccion.value.length > 80) {
+                valido = false;
+                mensaje("Dirección maximo 80 caracteres", txtDireccion);
+            }
+            //validacion select
+            if (selectEstado.value === null || selectEstado.value === '0') {
+                valido = false;
+                mensaje("EDebe seleccionar estado civil", selectEstado);
+            }
+
+            //validacion radio button
+            var sel = false;
+            for (let i = 0; i < radiosGenero.length; i++) {
+                if (radiosGenero[i].checked) {
+                    sel = true;
+                    //  let res=radiosGenero[i].value;
+                    break;
+                }
+            }
+            if (!sel) {
+                valido = false;
+                mensaje("Debe seleccionar un genero", radiosGenero[0]);
+            }
+
+            //validacion de un checkbox
+            /* if(!chkSuscrip.checked){
+              valido=false;
+              mensaje("Debe seleccionar una suscripcion", chkSuscrip);
+              }*/
+
+            //validacion de varios checkbox
+            sel = false;
+            cont = 0;
+            for (let i = 0; i < checkboxsSuscripcion.length; i++) {
+                if (checkboxsSuscripcion[i].checked) {
+                    cont++;
+                    sel = true;
+                    if (checkboxsSuscripcion[i].value === '2') {
+                        alert("Ha seleccionado el segundo checkbox");
+                    }
+                    // break;
+                }
+            }
+            if (!sel) {
+                valido = false;
+                mensaje("Debe seleccionar una suscripcion", checkboxsSuscripcion[0]);
+            }
+            if (cont < 2) {
+                valido = false;
+                mensaje("Debe seleccionar al menos dos suscripciones", checkboxsSuscripcion[0]);
+            }
+
+            // validacion de fecha
+            var dato = txtfecha.value;
+            var fechaN = new Date(dato);
+            var anioN = fechaN.getFullYear();
+
+            var fechaActual = new Date();// fecha actual
+            var anioA = fechaActual.getFullYear();
+            if (fechaN > fechaActual) {
+                valido = false;
+                mensaje("Fecha no puede ser superior a la actual", txtfecha);
+            } else if (anioN < 1930) {
+                valido = false;
+                mensaje("Anio de nacimiento no puede ser menor a 1930", txtfecha);
+            } else if ((anioA - anioN) < 18) {
+                valido = false;
+                mensaje("debe ser mayor de 18 años", txtfecha);
+            }
+
+            /*if(!valido){
+                 event.preventDefault();  // detener el evento  //stop form from submitting
+             }*/
+
+            return valido;
+        }
+
+        function mensaje(cadenaMensaje, elemento) {
+            elemento.focus();
+            window.alert(cadenaMensaje);
+
+        }
+
+
+        /*function mensaje(cadenaMensaje, elemento) {
+            elemento.focus();
+            var nodoPadre = elemento.parentNode;
+            var nodoMensaje = document.createElement("span");
+            nodoMensaje.textContent = cadenaMensaje;
+            //nodoMensaje.style.color = "red";
+            //nodoMensaje.display = "block";
+            nodoMensaje.setAttribute("class", "mensajeError");
+            nodoPadre.appendChild(nodoMensaje);
+        
+        }*/
+
+        /*function limpiarMensajes() {
+            var mensajes = document.querySelectorAll(".mensajeError");
+            for (let i = 0; i < mensajes.length; i++) {
+                mensajes[i].remove();// remueve o elimina un elemento de mi doc html
+            }
+        
+        }*/
+
+    </script>
 </body>
+
 </html>
