@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="style.css">
     <title>RESEÑAS</title>
     <style>
+
+        #escribe {
+            color: #9EE9A1;
+            font-weight: bold;
+        }
+
         /* SECCION 2 */
         .seccion-segundo{
             height: auto;
@@ -238,76 +244,6 @@
             transform: scale(1.05);
             transition: 0.5s;
         }
-
-        /* SECCION 5 */
-        .seccion-quinto {
-            height: auto;
-        }
-
-        #bloqueNewReseña {
-            display: flex;
-            flex-wrap: wrap;
-            background-color: #D4F4DB;
-            width: 90%;
-            height: auto;
-            color: rgb(0, 0, 0);
-            border-radius: 40px;
-            border: 0px;
-            padding: 40px;
-            margin: 60px 0px 60px 0px;
-        }
-
-        #leyendaNewReseña {
-            background-color: #2B2729;
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            border-radius: 10px;
-        }
-
-        #datosNewReseña {
-            display: grid;
-            grid-template-columns: 100px 200px;
-            grid-template-rows: 40px 40px 40px 20px;
-            margin-right: 40px;
-        }
-
-        #areaNewReseña {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-        }
-
-        .caja {
-            border: 0;
-            border-radius: 5px;
-            height: 20px;
-            padding: 5px;
-            padding-inline-start: 15px;
-            padding-inline-end: 15px;
-            margin-top: 15px;
-        }
-
-        #enviarReseña:active {
-            background-color: #D9D9D9;
-            color: black;
-        }
-
-        #boton{
-            margin-right: -45px;
-        }
-
-        form input[type="submit"] {
-            float: right;
-            background-color: black;
-            border-radius: 30px;
-            width: 150px;
-            height: 32px;
-            border: 0;
-            color: white;
-            cursor: pointer;
-            margin-top: 20px;
-        }
     </style>
 
 </head>
@@ -362,7 +298,7 @@
                             productos de calidad y un excelente servicio al cliente.
                             <br><br>Lee las reseñas de algunos de nuestros clientes, y si ya probaste alguno de nuestros
                             productos
-                            escribe tu reseña al final.
+                            escribe tu reseña dando <a href="ApraezEmely2.html" id="escribe">click aquí</a>.
                         </p>
                     </div>
 
@@ -532,40 +468,6 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="seccion-quinto">
-                <form action="#" target="_blank">
-                    <fieldset id="bloqueNewReseña">
-                        <legend id="leyendaNewReseña">¡Tu también puedes escribir una reseña!</legend>
-                        <div id="datosNewReseña">
-                            <p><b>Nombre:</b></p>
-                            <input type="text" name="nombre" id="nombre" placeholder="Escribe tus nombres."
-                                class="caja">
-                            <p><b>Email:</b></p>
-                            <input type="email" name="email" id="email" placeholder="Escribe tu email." class="caja">
-                            <p><b>Valoración:</b></p>
-                            <select name="producto" class="caja" style="height: 40px;">
-                                <option>5 estrellas</option>
-                                <option>4 estrellas</option>
-                                <option>3 estrellas</option>
-                                <option>2 estrellas</option>
-                                <option>1 estrella</option>
-                            </select>
-                            <p style="font-size: 9pt; grid-row: 5; grid-column: 1/3;">*Todos los campos son
-                                obligatorios.</p>
-                        </div>
-
-                        <div id="areaNewReseña">
-                            <p style="margin-bottom: 0px;"><b>Reseña:</b></p>
-                            <textarea id="nuevaReseña" name="nuevaReseña" cols="5" rows="5" class="caja"
-                                placeholder="Escribe tu reseña."
-                                style="width: 400px; height: auto; resize: none;"></textarea>
-                            
-                            <div id="boton"><input type="submit" id="enviarReseña" value="ENVIAR RESEÑA"></div>                            
-                        </div>
-                    </fieldset>
-                </form>
             </section>
         </main>
 
