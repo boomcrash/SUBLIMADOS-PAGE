@@ -68,6 +68,17 @@
             cursor: pointer;
             margin-top: 30px;
         }
+
+        .mensajeError {
+            background-color: rgb(202, 11, 11);
+            border-radius: 15px;
+            padding: 10px;
+            color: white;
+            font-size: 11px;
+            z-index: 1;
+            box-shadow: 0 0 5px #716f70,
+                0 0 5px #716f70;
+        }
     </style>
 </head>
 
@@ -118,7 +129,8 @@
                         <h2 id="encabezado">¡ESCRIBE TU RESEÑA!</h2>
                         <h3 style="margin-top: -10px;">SUPERIUM</h3>
                         <p id="parrafo">
-                            Este espacio es dedicado para tí. Puedes expresar tu opinión acerca acerca de nuestros productos y servicios.</p>
+                            Este espacio es dedicado para tí. Puedes expresar tu opinión acerca acerca de nuestros
+                            productos y servicios.</p>
                     </div>
                     <div class="seccion-uno-derecho">
                         <div class="circulo" id="circulo-arriba"></div>
@@ -132,32 +144,33 @@
             </section>
             <section class="seccion-segundo">
                 <div id="bloqueNewReseña">
-                    <form id="k" action="#" target="_blank">
+                    <form id="escribeturesenia">
                         <div id="datosNewReseña">
                             <label><b>Nombre:</b></label>
                             <input type="text" name="nombre" id="nombre" placeholder="Escribe tus nombres."
                                 class="caja">
                             <label><b>Email:</b></label>
-                            <input type="email" name="email" id="email" placeholder="Escribe tu email." class="caja">
+                            <input type="text" name="email" id="email" placeholder="Escribe tu email." class="caja">
                             <label><b>Valoración:</b></label>
-                            <select name="producto" class="caja" style="height: 30px;">
-                                <option>Seleccione</option>
-                                <option>5 estrellas</option>
-                                <option>4 estrellas</option>
-                                <option>3 estrellas</option>
-                                <option>2 estrellas</option>
-                                <option>1 estrella</option>
+                            <select id="valoracion" name="valoracion" class="caja" style="height: 30px;">
+                                <option value="0">Seleccione</option>
+                                <option value="5">5 estrellas</option>
+                                <option value="4">4 estrellas</option>
+                                <option value="3">3 estrellas</option>
+                                <option value="2">2 estrellas</option>
+                                <option value="1">1 estrella</option>
                             </select>
                         </div>
                         <label><b>Reseña:</b></label>
-                        <div id="areaNewReseña">                            
-                            <textarea id="nuevaReseña" name="nuevaReseña" rows="10" cols="500" class="caja" placeholder="Escribe tu reseña."
-                                style="width: 100%; height: auto; resize: none;"></textarea><br/><br/>
+                        <div id="areaNewReseña">
+                            <textarea id="resenia" name="nuevaReseña" rows="10" cols="500" class="caja"
+                                placeholder="Escribe tu reseña."
+                                style="width: 100%; height: auto; resize: none;"></textarea><br /><br />
                             <div>
-                                <input type="checkbox"/>
+                                <input type="checkbox" id="recibiremail" />
                                 <label style="font-size: 10pt;">Recibir alertas de promociones a este email.</label>
                             </div>
-                            <div id="boton"><input type="submit" id="enviarReseña" value="ENVIAR RESEÑA"></div>
+                            <input type="submit" id="enviarReseña" value="ENVIAR RESEÑA">
                         </div>
                     </form>
                 </div>
@@ -174,7 +187,87 @@
             </div>
         </footer>
     </div>
+    <script type="text/javascript">
 
+        var formulario = document.getElementById("escribeturesenia").addEventListener('submit', validar);
+
+        function validar(event) {
+
+            var valido = true;
+
+            var letra = /^[a-z ,.'-]+$/i;
+            var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+            var nombre = document.getElementById("nombre");
+            var email = document.getElementById("email");
+            var valoracion = document.getElementById("valoracion");
+            var resenia = document.getElementById("resenia");
+
+            limpiarMensajes();
+
+            // validación campo nombre
+            if (nombre.value === '') {
+                valido = false;
+                mensaje("El campo 'nombre' es requerido.", nombre);
+            } else if (!letra.test(nombre.value)) {
+                valido = false;
+                mensaje("El campo 'nombre' solo debe contener letras.", nombre);
+            } else if (nombre.length > 100) {
+                valido = false;
+                mensaje("Ingrese máximo 100 caracteres.", nombre);
+            }
+
+            // validación campo email
+            if (email.value === '') {
+                valido = false;
+                mensaje("El campo 'email' es requerido.", email);
+            } else if (!correo.test(email.value)) {
+                valido = false;
+                mensaje("Ingrese un email válido.", email);
+            } else if (email.length > 100) {
+                valido = false;
+                mensaje("Ingrese máximo 100 caracteres.", email);
+            }
+
+
+            // validación campo valoracion
+            if (valoracion.value === null || valoracion.value === '0') {
+                valido = false;
+                mensaje("Debe especificar la valoración", valoracion);
+            }
+
+            // validación campo reseña
+            if (resenia.value === '') {
+                valido = false;
+                mensaje("El campo 'reseña' es requerido.", resenia);
+            } else if (resenia.length > 100) {
+                valido = false;
+                mensaje("Ingrese máximo 100 caracteres.", resenia);
+            }
+
+            if (!valido) {
+                event.preventDefault();
+            }
+
+            function mensaje(cadenaMensaje, elemento) {
+                elemento.style.background = "rgb(255 222 222)";
+                elemento.focus();
+                var nodoPadre = elemento.parentNode.parentNode;
+                var nodoMensaje = document.createElement("span");
+                nodoMensaje.textContent = cadenaMensaje;
+                nodoMensaje.setAttribute("class", "mensajeError");
+                nodoPadre.appendChild(nodoMensaje);
+            }
+
+            function limpiarMensajes() {
+                var mensajes = document.querySelectorAll(".mensajeError");
+                for (let i = 0; i < mensajes.length; i++) {
+                    mensajes[i].remove();
+                }
+            }
+        }
+
+    </script>
 </body>
 
 </html>
