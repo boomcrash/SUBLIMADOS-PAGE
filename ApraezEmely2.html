@@ -12,23 +12,28 @@
             height: auto;
         }
 
+        span {
+            color: #9EE9A1;
+        }
+
         #bloqueNewReseña {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            background-color: #D9D9D9;
-            width: 500px;
-            height: auto;
-            color: rgb(0, 0, 0);
+            background-color: #2B2729;
+            width: 450px;
+            height: 500px;
+            color: rgb(255, 255, 255);
             border-radius: 40px;
             padding: 40px;
             margin: 60px;
+            box-shadow: 5px 5px #acacac;
         }
 
         #datosNewReseña {
             display: grid;
-            grid-template-columns: 100px 200px;
+            grid-template-columns: 120px 200px;
             grid-template-rows: 40px 40px 40px 40px;
             justify-content: space-around;
             justify-items: stretch;
@@ -40,7 +45,7 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            width: 300px;
+            width: 320px;
         }
 
         .caja {
@@ -54,25 +59,29 @@
         }
 
         #enviarReseña:active {
-            background-color: black;
-            color: white;
+            background-color: #9EE9A1;
+            color: black;
         }
 
         form input[type="submit"] {
-            background-color: #2B2729;
+            background-color: #D4F4DB;
             border-radius: 30px;
             width: 150px;
             height: 32px;
+            font-weight: bold;
             border: 0;
-            color: white;
+            color: #2B2729;
             cursor: pointer;
-            margin-top: 30px;
+            margin-top: 50px;
         }
 
         .mensajeError {
-            background-color: rgb(202, 11, 11);
+            background-color: rgb(201, 74, 74);
             border-radius: 15px;
             padding: 10px;
+            margin-top: -31px;
+            margin-left: 210px;
+            position: absolute;
             color: white;
             font-size: 11px;
             z-index: 1;
@@ -146,26 +155,36 @@
                 <div id="bloqueNewReseña">
                     <form id="escribeturesenia">
                         <div id="datosNewReseña">
-                            <label><b>Nombre:</b></label>
-                            <input type="text" name="nombre" id="nombre" placeholder="Escribe tus nombres."
-                                class="caja">
-                            <label><b>Email:</b></label>
-                            <input type="text" name="email" id="email" placeholder="Escribe tu email." class="caja">
-                            <label><b>Valoración:</b></label>
-                            <select id="valoracion" name="valoracion" class="caja" style="height: 30px;">
-                                <option value="0">Seleccione</option>
-                                <option value="5">5 estrellas</option>
-                                <option value="4">4 estrellas</option>
-                                <option value="3">3 estrellas</option>
-                                <option value="2">2 estrellas</option>
-                                <option value="1">1 estrella</option>
-                            </select>
+                            <label><b>Nombre: </b><span>*</span></label>
+                            <div>
+                                <input type="text" name="nombre" id="nombre" placeholder="Escribe tus nombres."
+                                    class="caja box" style="width: 170px;" onmouseover="mostrarError('nombre')" onmouseout="ocultarError('nombre')">
+                            </div>
+                            <label><b>Email: </b><span>*</span></b></label>
+                            <div>
+                                <input type="text" name="email" id="email" placeholder="Escribe tu email." class="caja box"
+                                    style="width: 170px;" onmouseover="mostrarError('email')" onmouseout="ocultarError('email')">
+                            </div>
+                            <label><b>Valoración: </b><span>*</span></b></label>
+                            <div>
+                                <select id="valoracion" name="valoracion" class="caja box"
+                                    style="height: 30px; width: 200px;" onmouseover="mostrarError('valoracion')" onmouseout="ocultarError('valoracion')">
+                                    <option value="0">Seleccione</option>
+                                    <option value="5">5 estrellas</option>
+                                    <option value="4">4 estrellas</option>
+                                    <option value="3">3 estrellas</option>
+                                    <option value="2">2 estrellas</option>
+                                    <option value="1">1 estrella</option>
+                                </select>
+                            </div>
                         </div>
-                        <label><b>Reseña:</b></label>
+                        <label><b>Reseña: </b><span>*</span></b></label>
                         <div id="areaNewReseña">
-                            <textarea id="resenia" name="nuevaReseña" rows="10" cols="500" class="caja"
-                                placeholder="Escribe tu reseña."
-                                style="width: 100%; height: auto; resize: none;"></textarea><br /><br />
+                            <div>
+                                <textarea id="resenia" name="nuevaReseña" rows="10" cols="400" class="caja box"
+                                    placeholder="Escribe tu reseña."
+                                    style="width: 290px; height: auto; resize: none;" onmouseover="mostrarError('resenia')" onmouseout="ocultarError('resenia')"></textarea>
+                            </div><br><br>
                             <div>
                                 <input type="checkbox" id="recibiremail" />
                                 <label style="font-size: 10pt;">Recibir alertas de promociones a este email.</label>
@@ -212,7 +231,7 @@
             } else if (!letra.test(nombre.value)) {
                 valido = false;
                 mensaje("El campo 'nombre' solo debe contener letras.", nombre);
-            } else if (nombre.length > 100) {
+            } else if (nombre.value.length > 100) {
                 valido = false;
                 mensaje("Ingrese máximo 100 caracteres.", nombre);
             }
@@ -224,23 +243,22 @@
             } else if (!correo.test(email.value)) {
                 valido = false;
                 mensaje("Ingrese un email válido.", email);
-            } else if (email.length > 100) {
+            } else if (email.value.length > 100) {
                 valido = false;
                 mensaje("Ingrese máximo 100 caracteres.", email);
             }
 
-
             // validación campo valoracion
             if (valoracion.value === null || valoracion.value === '0') {
                 valido = false;
-                mensaje("Debe especificar la valoración", valoracion);
+                mensaje("Debe especificar la valoración.", valoracion);
             }
 
             // validación campo reseña
             if (resenia.value === '') {
                 valido = false;
                 mensaje("El campo 'reseña' es requerido.", resenia);
-            } else if (resenia.length > 100) {
+            } else if (resenia.value.length > 100) {
                 valido = false;
                 mensaje("Ingrese máximo 100 caracteres.", resenia);
             }
@@ -248,22 +266,66 @@
             if (!valido) {
                 event.preventDefault();
             }
+        }
 
-            function mensaje(cadenaMensaje, elemento) {
-                elemento.style.background = "rgb(255 222 222)";
-                elemento.focus();
-                var nodoPadre = elemento.parentNode.parentNode;
-                var nodoMensaje = document.createElement("span");
-                nodoMensaje.textContent = cadenaMensaje;
-                nodoMensaje.setAttribute("class", "mensajeError");
-                nodoPadre.appendChild(nodoMensaje);
+        function mensaje(cadenaMensaje, elemento) {
+            
+            elemento.focus();
+            elemento.style.boxShadow = '0 0 5px red, 0 0 5px red';
+            
+            var nodoPadre = elemento.parentNode;
+            var nodoMensaje = document.createElement("div");
+            
+            nodoMensaje.textContent = cadenaMensaje;
+            nodoMensaje.setAttribute("class", "mensajeError");
+
+            if (elemento.id === "resenia") {
+                nodoMensaje.style.marginTop = '-170px';
+                nodoMensaje.style.marginLeft = '330px';
             }
 
-            function limpiarMensajes() {
-                var mensajes = document.querySelectorAll(".mensajeError");
-                for (let i = 0; i < mensajes.length; i++) {
-                    mensajes[i].remove();
-                }
+            switch (elemento.id) {
+                case "nombre":
+                    nodoMensaje.setAttribute("id", "error-nombre");
+                    break;
+                case "email":
+                    nodoMensaje.setAttribute("id", "error-email");
+                    break;
+                case "valoracion":
+                    nodoMensaje.setAttribute("id", "error-valoracion");
+                    break;
+                case "resenia":
+                    nodoMensaje.setAttribute("id", "error-resenia");
+                    break;
+                default:
+                    break;
+            }
+
+            nodoPadre.appendChild(nodoMensaje);
+            nodoMensaje.style.visibility = 'hidden';
+        }
+
+        function limpiarMensajes() {
+            var mensajes = document.querySelectorAll(".mensajeError");
+            for (let i = 0; i < mensajes.length; i++) {
+                mensajes[i].remove();
+            }
+            
+            var boxes = document.querySelectorAll(".box");
+            for (let i = 0; i < mensajes.length; i++) {
+                boxes[i].style.boxShadow = '0 0 0';
+            }
+        }
+
+        function mostrarError(nombre){
+            if (document.querySelector("#error-"+nombre) !== null) {
+                document.querySelector("#error-"+nombre).style.visibility = 'visible';
+            }
+        }
+
+        function ocultarError(nombre){
+            if (document.querySelector("#error-"+nombre) !== null) {
+                document.querySelector("#error-"+nombre).style.visibility = 'hidden';
             }
         }
 
