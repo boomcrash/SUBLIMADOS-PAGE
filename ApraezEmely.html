@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <title>RESEÑAS</title>
     <style>
-
         #escribe {
             color: #9EE9A1;
             font-weight: bold;
         }
 
         /* SECCION 2 */
-        .seccion-segundo{
+        .seccion-segundo {
             height: auto;
         }
 
@@ -103,9 +102,38 @@
         }
 
         /* SECCION 3 */
-        .seccion-tercero{
+        .seccion-tercero {
             flex-direction: column;
             height: auto;
+        }
+
+        .bloque {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: auto;                        
+        }
+
+        .desplazadores {
+            margin-top: 20px;
+        }
+
+        input[type="radio"] {
+            appearance: none;
+            margin: 10px;
+            width: 25px;
+            height: 25px;
+            background-clip: content-box;
+            border: 2px solid #4B4B4B;
+            background-color: #4B4B4B;
+            border-radius: 50%;
+        }
+
+        input[type="radio"]:checked {
+            padding: 3px;
+            background-color: #4B4B4B;
         }
 
         #bloqueReseñas1 {
@@ -123,7 +151,7 @@
             margin-bottom: 60px;
         }
 
-        h2.reseña{
+        h2.reseña {
             margin: 60px 0 60px 0;
             padding: 20px 0 20px 0;
             border-top: #2B2729 solid 1px;
@@ -143,6 +171,8 @@
             border-radius: 20px;
             margin: 60px 40px 20px 40px;
             padding: 20px;
+            /*opacity: 0;
+            transition: opacity 2s;*/
         }
 
         .reseñas1 .reseñasEstrellas {
@@ -231,9 +261,13 @@
             content: "»";
         }
 
-        P.nombreCliente {
+        p.nombreCliente {
             font-style: italic;
             font-weight: bold;
+        }
+
+        p.nombreCliente::before {
+            content: "- ";
         }
 
         #leyendaNewReseña:hover,
@@ -253,14 +287,14 @@
         <header>
             <nav>
                 <img src="img/logotipo.png" alt="logo" class="nav-logo">
-                    
+
                 <ul class="nav-botones">
                     <li class="boton1"><a href="index.html">INICIO</a></li>
                     <li class="boton2">
                         <a href="YanezPaula.html">SERVICIOS</a>
                         <ul>
                             <a href="ElizaldeMilton2.html" class="submenu submenu1">A domicilio</a>
-                            <a href="YanezPaula2.html" class="submenu submenu2">Internacional</a> 
+                            <a href="YanezPaula2.html" class="submenu submenu2">Internacional</a>
                         </ul>
                     </li>
                     <li class="boton3">
@@ -280,9 +314,9 @@
                         <ul>
                             <a href="QuitoRuth2.html" class="submenu submenu5">Escribenos!</a>
                         </ul>
-                    </li>  
+                    </li>
                 </ul>
-                
+
             </nav>
         </header>
 
@@ -338,9 +372,12 @@
                             </div>
 
                             <div id="bloqueBarras">
-                                <meter class="barraValoracion" max="583" value="400" title="400/583 estrellas"></meter> <br>
-                                <meter class="barraValoracion" max="583" value="170" title="170/583 estrellas"></meter> <br>
-                                <meter class="barraValoracion" max="583" value="10" title="10/583 estrellas"></meter> <br>
+                                <meter class="barraValoracion" max="583" value="400" title="400/583 estrellas"></meter>
+                                <br>
+                                <meter class="barraValoracion" max="583" value="170" title="170/583 estrellas"></meter>
+                                <br>
+                                <meter class="barraValoracion" max="583" value="10" title="10/583 estrellas"></meter>
+                                <br>
                                 <meter class="barraValoracion" max="583" value="3" title="3/583 estrellas"></meter> <br>
                                 <meter class="barraValoracion" max="583" value="0" title="0/583 estrellas"></meter>
                             </div>
@@ -352,44 +389,16 @@
             <section class="seccion-tercero">
                 <h2 class="reseña">RESEÑAS DE NUESTRO SITIO WEB</h2>
                 <div id="bloqueReseñas1">
-                    
-                    <div class="reseñas1">
-                        <div class="reseñasEstrellas">
-                            <img src="img/estrella.png" alt="estrella1">
-                            <img src="img/estrella.png" alt="estrella2">
-                            <img src="img/estrella.png" alt="estrella3">
-                            <img src="img/estrella.png" alt="estrella4">
-                            <img src="img/vaciaEstrella.png" alt="estrellamedia">
-                        </div>
 
-                        <div class="textoReseñas">
-                            <blockquote>
-                                <p>Recibí el producto muy bien empaquetado y protegido. Me llegó en perfectas
-                                    condiciones. En realidad me quedo muy contento,
-                                    no solamente con el producto, sino con el servicio que ofrecen.</p>
-                            </blockquote>
-                            <p class="nombreCliente">- Michel Doinel</p>
-                        </div>
+                    <div class="bloque"></div>
+
+                    <div class="desplazadores">
+                        <input type="radio" name="radio" value="1" class="radio" checked>
+                        <input type="radio" name="radio" value="2" class="radio">
+                        <input type="radio" name="radio" value="3" class="radio">
+                        <input type="radio" name="radio" value="4" class="radio">
                     </div>
 
-                    <div class="reseñas1">
-                        <div class="reseñasEstrellas">
-                            <img src="img/estrella.png" alt="estrella1">
-                            <img src="img/estrella.png" alt="estrella2">
-                            <img src="img/estrella.png" alt="estrella3">
-                            <img src="img/estrella.png" alt="estrella4">
-                            <img src="img/estrella.png" alt="estrella5">
-                        </div>
-
-                        <div class="textoReseñas">
-                            <blockquote>
-                                <p>La opción de pago contrareembolso fue decisiva para mi. Hice un pedido y lo pagué una
-                                    vez recibido. Esta es una excelente estrategia y un plus para las personas que
-                                    desconfiamos aun de las compras online.</p>
-                            </blockquote>
-                            <p class="nombreCliente">- Delmira Agustini</p>
-                        </div>
-                    </div>
                 </div>
             </section>
 
@@ -470,7 +479,6 @@
                 </div>
             </section>
         </main>
-
         <footer>
             <h4 class="email">sublimados@enterprise.com</h4>
             <h4>Todos los derechos reservados@Copytright - Sublimados</h4>
@@ -480,6 +488,140 @@
                 <a href="https://www.instagram.com"><img src="img/instagram.png" alt="logo" class="nav-logo"></a>
             </div>
         </footer>
+        <script type="text/javascript">
+
+            var bloque = document.getElementsByClassName("bloque")[0];
+            var radios = document.getElementsByName("radio");
+            var resenia = [];
+            var cliente = [];
+            //var n = 0;
+
+            ponerResenia();
+
+            radios[0].addEventListener('click', ponerResenia);
+            radios[1].addEventListener('click', ponerResenia);
+            radios[2].addEventListener('click', ponerResenia);
+            radios[3].addEventListener('click', ponerResenia);
+
+            function eliminarResenia() {
+                let res = document.getElementsByClassName("reseñas1");
+                //if (n !== 1) {
+                    console.log(res.length);
+                    for (let i = 0; i < res.length; i++) {
+                        res[i].remove();
+                    }
+                //}
+            }
+
+            function crearResenia(resenia, nombre) {
+
+                for (let i = 0; i < 2; i++) {
+
+                    // Crea estrellas
+                    let imagen1 = document.createElement("img");
+                    imagen1.src = "img/estrella.png";
+                    imagen1.alt = "estrella1";
+
+                    let imagen2 = document.createElement("img");
+                    imagen2.src = "img/estrella.png";
+                    imagen2.alt = "estrella2";
+
+                    let imagen3 = document.createElement("img");
+                    imagen3.src = "img/estrella.png";
+                    imagen3.alt = "estrella3";
+
+                    let imagen4 = document.createElement("img");
+                    imagen4.src = "img/estrella.png";
+                    imagen4.alt = "estrella4";
+
+                    let imagen5 = document.createElement("img");
+                    imagen5.src = "img/estrella.png";
+                    imagen5.alt = "estrella5";
+
+                    // Crea contenedor de estrellas
+                    let divResEstrellas = document.createElement("div");
+                    divResEstrellas.className = "reseñasEstrellas";
+                    divResEstrellas.appendChild(imagen1);
+                    divResEstrellas.appendChild(imagen2);
+                    divResEstrellas.appendChild(imagen3);
+                    divResEstrellas.appendChild(imagen4);
+                    divResEstrellas.appendChild(imagen5);
+
+                    // Crea resenia
+                    let texto = document.createElement("p");
+                    texto.textContent = resenia[i];
+
+                    let quote = document.createElement("blockquote");
+                    quote.appendChild(texto);
+
+                    let cliente = document.createElement("p");
+                    cliente.className = "nombreCliente";
+                    cliente.textContent = nombre[i];
+
+                    // Crea contenedor de resenia
+                    let divTexto = document.createElement("div");
+                    divTexto.className = "textoReseñas";
+                    divTexto.appendChild(quote);
+                    divTexto.appendChild(cliente);
+
+                    // Crea contenedor de contenedores estrellas y resenia
+                    var divRes1 = document.createElement("div");
+                    divRes1.className = "reseñas1";
+                    divRes1.appendChild(divResEstrellas);
+                    divRes1.appendChild(divTexto);
+                    /*divRes1.style.opacity = '1';
+                    divRes1.style.transition = 'opacity 2s';*/
+
+                    bloque.appendChild(divRes1);
+                }
+            }
+
+            function ponerResenia() {
+                //n++;
+                let valor;
+
+                for (let i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        valor = radios[i].value;
+                    }
+                }
+
+                eliminarResenia();
+
+                switch (valor) {
+                    case "1":
+                        resenia[0] = "Recibí el producto muy bien empaquetado y protegido. Me llegó en perfectas condiciones. En realidad me quedo muy contento,no solamente con el producto, sino con el servicio que ofrecen.";
+                        cliente[0] = "Michel Doinel";
+                        resenia[1] = "La opción de pago contrareembolso fue decisiva para mi. Hice un pedido y lo pagué una vez recibido. Esta es una excelente estrategia y un plus para las personas que desconfiamos aun de las compras online.";
+                        cliente[1] = "Delmira Agustini";
+                        break;
+                    case "2":
+                        resenia[0] = "2pppp";
+                        cliente[0] = "2khuk";
+                        resenia[1] = "2ddd";
+                        cliente[1] = "2ggg";
+                        break;
+                    case "3":
+                        resenia[0] = "3ddd";
+                        cliente[0] = "3ggg";
+                        resenia[1] = "3ddd";
+                        cliente[1] = "3ggg";
+                        break;
+                    case "4":
+                        resenia[0] = "4ddd";
+                        cliente[0] = "4ggg";
+                        resenia[1] = "4ddd";
+                        cliente[1] = "4ggg";
+                        break;
+                    default:
+                        break;
+                }
+
+                crearResenia(resenia, cliente);
+            }
+
+        </script>
     </div>
 </body>
+
 </html>
