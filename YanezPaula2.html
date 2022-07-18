@@ -198,9 +198,9 @@
 
                                 <div>
                                     <label>Recibir vía:</label>
-                                    <input class="via" id="ser" type="radio" name="via" id="v1" value="S" />ServiEntrega
-                                    <input class="via" id="tra" type="radio" name="via" id="v2" value="T" />Tramaco
-                                    <input class="via" id="mun" type="radio" name="via" id="v3" value="M" />MundoExpress
+                                    <input class="via" type="radio" name="via" id="v1" value="S" />ServiEntrega
+                                    <input class="via" type="radio" name="via" id="v2" value="T" />Tramaco
+                                    <input class="via" type="radio" name="via" id="v3" value="M" />MundoExpress
                                 </div>
                                 <div>
                                     <label>Seleccione país de envío:</label>
@@ -224,10 +224,7 @@
 
 
                                 </div>
-                                <div>
-                                    <label>Fecha de emisión:</label>
-                                    <input type="date" name="fecha" id="fecha" class="formItem" />
-                                </div>
+
 
                                 <div>
                                     <label>Especificaciones:</label> <br>
@@ -297,7 +294,6 @@
             var radiosVia = document.getElementsByName("via");//retorna un arreglo;
             var radio1 = document.getElementById("v1");
             var chkAcc = document.getElementById("acc1");
-            var txtfecha = document.getElementById("fecha");
             var txtemail = document.getElementById("correo");
             var checkboxsAccionista = document.getElementsByClassName("acc");// retorna un arreglo
 
@@ -398,24 +394,6 @@
                 mensaje("Debe seleccionar una opción", checkboxsAccionista[0]);
             }
 
-
-
-
-
-            // validacion de fecha
-            var dato = txtfecha.value;
-            var fechaN = new Date(dato);
-            var anioN = fechaN.getFullYear();
-
-            var fechaActual = new Date();// fecha actual
-            var anioA = fechaActual.getFullYear();
-            if (fechaN > fechaActual) {
-                valido = false;
-                mensaje("Fecha no puede ser superior  a la actual", txtfecha);
-            } else if (anioN < 2022) {
-                valido = false;
-                mensaje("Año de envío no puede ser menor a 2022, año actual", txtfecha);
-            }
 
 
 
