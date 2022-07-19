@@ -265,41 +265,27 @@
                             alert ("Correo electrónico incorecto");
                         }
 
-                        /* validación  radio button-género */
-                        var selecionado = false;
-                        for(let i =0; i <radiosGenero.length; i++){
-                            if(radiosGenero[i].checked){
-                                radio = selecionado;
-                                break;
+                        let auxOption=false;
+                        for(option of radiosGenero){
+                            if(option.checked){
+                                auxOption=true;
                             }
                         }
-                        if(!selecionado){
-                            valido = false;
-                            mostrar("Debe seleccionar un géneo", radiosGenero[0]);
-                        }
+                        if(auxOption==false){valido=false; alert("Elija un genero");}
 
-                        /* validación select-estado civil */
-                        if (selectEstado.value === null || selectEstado.value === '0') {
-                            valido = false;
-                            alert("Seleccionar estado civil");
-                        }
-
-                        /* Validar de checkbox-intereses */
-                       selecionado = false;
-                        contador=0;
-                        for(let i=0; i<checkboxSuscripcion.length; i++){
-                            if(checkboxSuscripcion[i].checked){
-                                contador++;
-                                selecionado = true;
+                        let auxCheck=false;
+                        for(check of checkboxSuscripcion){
+                            if(check.checked){
+                                auxCheck=true; 
                             }
                         }
-                        if(!selecionado){
-                            valido = false;
-                            mostrar("Seleccione sus intereses", checkboxSuscripcion[0]);
-                        }
-                        if(contador<2){
-                            valido = false;
-                            mostrar("Seleccione al menos dos intereses", checkboxSuscripcion[0]);
+                    
+                        
+                        if(auxCheck==false){valido=false; alert("Elija un estampado");}
+
+                        if(selectEstado.selectedIndex==0){
+                            valido=false;
+                            alert("Elija un estado");
                         }
 
                         /* validación fecha de nacimiento-date*/
@@ -315,6 +301,7 @@
                         if(valido==true){
                             alert("Has enviado exitosamente tu formulario") 
                         }else{
+                            valido=true;
                             e.preventDefault();  
                         }
                         
