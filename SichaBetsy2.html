@@ -157,7 +157,7 @@
                                 <div id="txtNom">
                                     <label class="form"> <b> NOMBRE: </b>  </label>
                                     <input type="text" name="nombre" id="nom" class="form fi" placeholder="Ingrese su Nombre">
-                                </div>
+                                </div> <br>
                                 <div id="txtTelf">
                                     <label class="form"> <b> NÚMERO DE TELÉFONO PARA CONTACTO: </b>  </label>
                                     <input type="text" name="telefono" id="telf" class="form fi" placeholder="Ingrese su Teléfono">
@@ -192,7 +192,7 @@
                             </div> <br>
                             <div id="txaCentro">
                                 <label class="form"> <b> OBSERVACIONES: </b> </label> <br>
-                                <textarea name="observaciones" id="obs" cols="100" rows="4" class="form" placeholder="Ingrese sus Observaciones"></textarea>
+                                <textarea name="observaciones" id="obs" cols="100" rows="3" class="form" placeholder="Ingrese sus Observaciones"></textarea>
                             </div> <br>
                             <div id="btnsCentro">
                                 <input type="submit" class="form botones" value="Enviar" >   
@@ -234,7 +234,7 @@
             //PRODUCTO
             if (cbxProducto.value === null || cbxProducto.value === '0') {
                 valido = false;
-                mensaje("DEBE SELECCIONAR UNA OPCIÓN", cbxProducto);
+                mensaje("DEBE SELECCIONAR UN PRODUCTO", cbxProducto);
             }
             //NOMBRE
             if(txtNombre.value === ''){
@@ -263,13 +263,13 @@
                     cont++;
                     sel = true;
                     if (chbxColor[i].value === '1') {
-                        alert("HA SELECCIONADO LA PRIMERA OPCION DE COLOR");
+                        alert("DEBE SELECCIONAR MÁS OPCIONES DE COLOR");
                     }
                 }
             }
             if (!sel) {
                 valido = false;
-                mensaje("DEBE SELECCIONAR UNA OPCION DE COLOR", chbxColor[0]);
+                mensaje("DEBE SELECCIONAR OPCIONES DE COLOR", chbxColor[0]);
             }
             if (cont<3) {
                 valido = false;
@@ -278,7 +278,7 @@
             //DISEÑO
             if (cbxDiseño.value === null || cbxDiseño.value === '0') {
                 valido = false;
-                mensaje("DEBE SELECCIONAR UNA OPCIÓN", cbxDiseño);
+                mensaje("DEBE SELECCIONAR UNA OPCIÓN DE DISEÑO PARA SU PRODUCTO", cbxDiseño);
             }
             //MODELO
             var sel = false;
@@ -291,7 +291,7 @@
             }
             if (!sel) {
                 valido = false;
-                mensaje("DEBE SELECCIONAR UN TIPO DE TELA", rbModelo[0]);
+                mensaje("DEBE SELECCIONAR UN TIPO DE MODELO PARA PLASMAR EN SU PRODUCTO", rbModelo[0]);
             }
             //OBSERVACIONES
             if(txtaObservacion.value === ''){
