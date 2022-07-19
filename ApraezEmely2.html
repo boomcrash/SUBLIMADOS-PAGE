@@ -23,7 +23,7 @@
             align-items: center;
             background-color: #2B2729;
             width: 450px;
-            height: 500px;
+            height: 540px;
             color: rgb(255, 255, 255);
             border-radius: 40px;
             padding: 40px;
@@ -34,10 +34,15 @@
         #datosNewReseña {
             display: grid;
             grid-template-columns: 120px 200px;
-            grid-template-rows: 40px 40px 40px 40px;
+            grid-template-rows: 40px 40px 40px 80px;
             justify-content: space-around;
             justify-items: stretch;
-            align-items: baseline;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #DivRadio1 {
+            margin-bottom: 5px;
         }
 
         #areaNewReseña {
@@ -55,7 +60,10 @@
             padding: 5px;
             padding-inline-start: 15px;
             padding-inline-end: 15px;
-            margin-top: 15px;
+        }
+
+        #resenia {
+            margin: 10px 0 10px 0;
         }
 
         #enviarReseña:active {
@@ -158,17 +166,20 @@
                             <label><b>Nombre: </b><span>*</span></label>
                             <div>
                                 <input type="text" name="nombre" id="nombre" placeholder="Escribe tus nombres."
-                                    class="caja box" style="width: 170px;" onmouseover="mostrarError('nombre')" onmouseout="ocultarError('nombre')">
+                                    class="caja box" style="width: 170px;" onmouseover="mostrarError('nombre')"
+                                    onmouseout="ocultarError('nombre')">
                             </div>
-                            <label><b>Email: </b><span>*</span></b></label>
+                            <label><b>Email: </b><span>*</span></label>
                             <div>
-                                <input type="text" name="email" id="email" placeholder="Escribe tu email." class="caja box"
-                                    style="width: 170px;" onmouseover="mostrarError('email')" onmouseout="ocultarError('email')">
+                                <input type="text" name="email" id="email" placeholder="Escribe tu email."
+                                    class="caja box" style="width: 170px;" onmouseover="mostrarError('email')"
+                                    onmouseout="ocultarError('email')">
                             </div>
-                            <label><b>Valoración: </b><span>*</span></b></label>
+                            <label><b>Valoración: </b><span>*</span></label>
                             <div>
                                 <select id="valoracion" name="valoracion" class="caja box"
-                                    style="height: 30px; width: 200px;" onmouseover="mostrarError('valoracion')" onmouseout="ocultarError('valoracion')">
+                                    style="height: 30px; width: 200px;" onmouseover="mostrarError('valoracion')"
+                                    onmouseout="ocultarError('valoracion')">
                                     <option value="0">Seleccione</option>
                                     <option value="5">5 estrellas</option>
                                     <option value="4">4 estrellas</option>
@@ -177,13 +188,26 @@
                                     <option value="1">1 estrella</option>
                                 </select>
                             </div>
+                            <label><b>Servicio: </b><span>*</span></label>
+                            <div id="contenedorRadios" class="box" onmouseover="mostrarError('radio')"
+                                onmouseout="ocultarError('radio')">
+                                <div id="divRadio1">
+                                    <input type="radio" id="radio1" name="radio" value="1" class="radio">
+                                    <label>A domicilio</label>
+                                </div>
+                                <div id="divRadio2">
+                                    <input type="radio" id="radio2" name="radio" value="2" class="radio">
+                                    <label>Internacional</label>
+                                </div>
+                            </div>
                         </div>
-                        <label><b>Reseña: </b><span>*</span></b></label>
+                        <label><b>Reseña: </b><span>*</span></label>
                         <div id="areaNewReseña">
                             <div>
                                 <textarea id="resenia" name="nuevaReseña" rows="10" cols="400" class="caja box"
-                                    placeholder="Escribe tu reseña."
-                                    style="width: 290px; height: auto; resize: none;" onmouseover="mostrarError('resenia')" onmouseout="ocultarError('resenia')"></textarea>
+                                    placeholder="Escribe tu reseña." style="width: 290px; height: auto; resize: none;"
+                                    onmouseover="mostrarError('resenia')"
+                                    onmouseout="ocultarError('resenia')"></textarea>
                             </div><br><br>
                             <div>
                                 <input type="checkbox" id="recibiremail" />
@@ -220,6 +244,7 @@
             var nombre = document.getElementById("nombre");
             var email = document.getElementById("email");
             var valoracion = document.getElementById("valoracion");
+            var radio = document.getElementsByName("radio");
             var resenia = document.getElementById("resenia");
 
             limpiarMensajes();
@@ -251,7 +276,13 @@
             // validación campo valoracion
             if (valoracion.value === null || valoracion.value === '0') {
                 valido = false;
-                mensaje("Debe especificar la valoración.", valoracion);
+                mensaje("Especifique la valoración.", valoracion);
+            }
+
+            // validación campo servicio
+            if (!radio[0].checked && !radio[1].checked) {
+                valido = false;
+                mensaje("Especifique el tipo de servicio.", radio[0].parentNode.parentNode);
             }
 
             // validación campo reseña
@@ -269,20 +300,19 @@
         }
 
         function mensaje(cadenaMensaje, elemento) {
-            
+
             elemento.focus();
             elemento.style.boxShadow = '0 0 5px red, 0 0 5px red';
-            
-            var nodoPadre = elemento.parentNode;
+
+            if (elemento.id === "contenedorRadios") {
+                var nodoPadre = elemento;
+            } else {
+                var nodoPadre = elemento.parentNode;
+            }
+
             var nodoMensaje = document.createElement("div");
-            
             nodoMensaje.textContent = cadenaMensaje;
             nodoMensaje.setAttribute("class", "mensajeError");
-
-            if (elemento.id === "resenia") {
-                nodoMensaje.style.marginTop = '-170px';
-                nodoMensaje.style.marginLeft = '330px';
-            }
 
             switch (elemento.id) {
                 case "nombre":
@@ -294,7 +324,13 @@
                 case "valoracion":
                     nodoMensaje.setAttribute("id", "error-valoracion");
                     break;
+                case "contenedorRadios":
+                    nodoMensaje.style.marginTop = '-35px';
+                    nodoMensaje.setAttribute("id", "error-radio");
+                    break;
                 case "resenia":
+                    nodoMensaje.style.marginTop = '-180px';
+                    nodoMensaje.style.marginLeft = '330px';
                     nodoMensaje.setAttribute("id", "error-resenia");
                     break;
                 default:
@@ -305,27 +341,29 @@
             nodoMensaje.style.visibility = 'hidden';
         }
 
-        function limpiarMensajes() {
+        function limpiarMensajes() {            
             var mensajes = document.querySelectorAll(".mensajeError");
-            for (let i = 0; i < mensajes.length; i++) {
+            let a = mensajes.length - 1;
+            for (let i = a; i > -1; i--) {
                 mensajes[i].remove();
             }
-            
+
             var boxes = document.querySelectorAll(".box");
-            for (let i = 0; i < mensajes.length; i++) {
+            let b = boxes.length - 1;
+            for (let i = b; i > -1; i--) {
                 boxes[i].style.boxShadow = '0 0 0';
             }
         }
 
-        function mostrarError(nombre){
-            if (document.querySelector("#error-"+nombre) !== null) {
-                document.querySelector("#error-"+nombre).style.visibility = 'visible';
+        function mostrarError(nombre) {
+            if (document.querySelector("#error-" + nombre) !== null) {
+                document.querySelector("#error-" + nombre).style.visibility = 'visible';
             }
         }
 
-        function ocultarError(nombre){
-            if (document.querySelector("#error-"+nombre) !== null) {
-                document.querySelector("#error-"+nombre).style.visibility = 'hidden';
+        function ocultarError(nombre) {
+            if (document.querySelector("#error-" + nombre) !== null) {
+                document.querySelector("#error-" + nombre).style.visibility = 'hidden';
             }
         }
 
