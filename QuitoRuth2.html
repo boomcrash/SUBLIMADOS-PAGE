@@ -129,7 +129,7 @@
                                 <!-- tipo texto -->
                                 <div>
                                     <label><b>Nombre: </b></label>
-                                    <input type="text" name="nombres" id="nombre" class="datos" placeholder="Escriba su nombre"/>
+                                    <input type="text" name="nombres" id="nombreid" class="datos" placeholder="Escriba su nombre"/>
                                 </div>
                                 <div>
                                     <label><b>Apellido: </b></label>
@@ -137,11 +137,11 @@
                                 </div>
                                 <div>
                                     <label><b>Celular: </b></label>
-                                    <input type="text" name="celular" id="celular" class="datos" placeholder="Ingrese su numero celular"/>
+                                    <input type="text" name="celular" id="celularid" class="datos" placeholder="Ingrese su numero celular"/>
                                 </div>
                                 <div>
                                     <label><b>Email: </b></label>
-                                    <input type="text" name="email" id="email" class="datos" placeholder="Ingrese su email"/>
+                                    <input type="text" name="email" id="emailid" class="datos" placeholder="Ingrese su email"/>
                                 </div>
                                 <!-- tipo radio -->
                                 <div>
@@ -172,7 +172,7 @@
                                 <!-- tipo dato -->
                                 <div>
                                     <label><b>Fecha de nacimiento:</b></label>
-                                    <input type="date" name="fecha" id="fecha" class="datos"/>
+                                    <input type="date" name="fecha" id="fechaid" class="datos"/>
                                 </div>
                                 <!-- tipo area de texto -->
                                 <div>
@@ -188,22 +188,34 @@
                 </div>
             </section>
         
+        </main>
+    
+        <footer>
+            <h4 class="email">sublimados@enterprise.com</h4>
+            <h4>Todos los derechos reservados@Copytright - Sublimados</h4>
+            <div> 
+                <a href="https://www.facebook.com"><img src="img/facebook.png" alt="logo" class="nav-logo"></a>
+                <a href="https://www.twitter.com"><img src="img/twitter.png" alt="logo" class="nav-logo"></a>
+                <a href="https://www.instagram.com"><img src="img/instagram.png" alt="logo" class="nav-logo"></a>
+            </div>
+        </footer>
+    </div>
+    
             <script type="text/javascript">
                
               /*  window.alert("Holaaa"); */
                     var valido = true;
-                    var form= document.getElementById("FormContacto");
+                    var form= document.getElementById("formContacto");
                     form.addEventListener("submit",verificar);   
-                    var txtNombre = document.getElementById("nombre");
+                    var txtNombre = document.getElementById("nombreid");
                     var txtApellido = document.getElementById("apellido");
-                    var txtCelular = document.getElementById("celular");
-                    var txtCorreo = document.getElementById("email");
-                    var radiosGenero = document.getElementByIdName("gen");
+                    var txtCelular = document.getElementById("celularid");
+                    var txtCorreo = document.getElementById("emailid");
+                    var radiosGenero = document.getElementsByName("gen");
 /*                     var radioB = document.getElementById("g1"); */
                     var selectEstado = document.getElementById("estado");
-                    var checkboxSuscripcion = document.getElementsByClassName("intereses");
-                    var txtFecha = document.getElementById("fecha");
-                    
+                    var checkboxSuscripcion = document.querySelectorAll(".intereses");
+                    var txtFecha = document.getElementById("fechaid");
                     var palabra = /^[a-z ,.'-]+$/i;
                     var correo = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
                     var telefonoR =  /^[0-9]{10}$/i;
@@ -212,43 +224,45 @@
                         /* validación para el nombre */
                         if(txtNombre.value.length==0){
                             valido = false;
-                            mostrar("Escriba su nombre", txtNombre);
-                        }else if(!palabra.test(txtNombre.value)){
+                            alert("Escriba su nombre");
+                        }
+                        else if(!palabra.test(txtNombre.value)){
                             valido = false;
-                            mostrar("Solo debe contener letras", txtNombre);
-                        }else if(txtNombre.value.length>20){
+                            alert("Solo debe contener letras");
+                        }
+                        else if(txtNombre.value.length>20){
                             valido = false;
-                            mostrar("No debe contener más de 20 caracteres", txtNombre);
+                            alert("No debe contener más de 20 caracteres");
                         }
 
                         /* validación de apellido */
                         if(txtApellido.value.length==0){
                             valido = false;
-                            mostrar("Escriba su apellido", txtApellido);
+                            alert("Escriba su apellido");
                         }else if(!palabra.test(txtApellido.value)){
                             valido = false;
-                            mostrar("Solo debe contener letras", txtApellido);
+                            alert("Solo debe contener letras");
                         }else if(txtApellido.value.length>20){
                             valido = false;
-                            mostrar("No debe contener más de 20 caracteres", txtApellido);
+                            alert("No debe contener más de 20 caracteres");
                         }
 
                         /* validación de teléfono */
                         if(txtCelular.value.length==0){
                             valido = false;
-                            mostrar("Debe ingresar su número de celular", txtCelular);
+                            alert("Debe ingresar su número de celular");
                         }else if(!telefonoR.test(txtCelular.value)){
                             valido = false;
-                            mostrar ("El teléfono debe contener 10 dígitos",txtCelular);
+                            alert ("El teléfono debe contener 10 dígitos");
                         }
 
                         /* validación de email */
                         if(txtCorreo.value.length==0){
                             valido = false;
-                            mostrar("Debe ingresar su correo electrónico", txtCorreo);
+                            alert("Debe ingresar su correo electrónico");
                         }else if(!correo.test(txtCorreo.value)){
                             valido = false;
-                            mostrar ("Correo electrónico incorecto",txtCorreo);
+                            alert ("Correo electrónico incorecto");
                         }
 
                         /* validación  radio button-género */
@@ -267,7 +281,7 @@
                         /* validación select-estado civil */
                         if (selectEstado.value === null || selectEstado.value === '0') {
                             valido = false;
-                            mostrar("Seleccionar estado civil", selectEstado);
+                            alert("Seleccionar estado civil");
                         }
 
                         /* Validar de checkbox-intereses */
@@ -295,29 +309,16 @@
 
                         if(feNacimiento>feActual){
                             valido = false;
-                            mostrar("La fecha de nacimiento no puede ser mayor que el año actual",textFecha);
+                            alert("La fecha de nacimiento no puede ser mayor que el año actual");
                         }
+                        
                         if(!valido==true){
-                                 e.preventDefault()   
+                            e.preventDefault();   
                         }
+                        
                     }
-                function mostrar(cadenaMostrar, elemento){
-                        elemento.focus();
-                        window.alert(cadenaMensaje);
-                }
+
             </script>
-        </main>
-    
-        <footer>
-            <h4 class="email">sublimados@enterprise.com</h4>
-            <h4>Todos los derechos reservados@Copytright - Sublimados</h4>
-            <div> 
-                <a href="https://www.facebook.com"><img src="img/facebook.png" alt="logo" class="nav-logo"></a>
-                <a href="https://www.twitter.com"><img src="img/twitter.png" alt="logo" class="nav-logo"></a>
-                <a href="https://www.instagram.com"><img src="img/instagram.png" alt="logo" class="nav-logo"></a>
-            </div>
-        </footer>
-    </div>
-    
+
 </body>
 </html>
