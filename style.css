@@ -230,6 +230,7 @@ footer :nth-child(3){
         flex-direction: column;
         justify-content: center;
     }
+
 }
 @media (max-width:500px)
 {
@@ -241,11 +242,11 @@ footer :nth-child(3){
         margin-top: 20px ;
     }
 
-    .seccion-primero{
-        height:250px ;
-    }
     #parrafo{
         width: 350px; color: #4B4B4B; text-align: justify;
+    }
+    .seccion-primero{
+        height: auto;
     }
 }
 @media (max-width:450px)
@@ -266,9 +267,6 @@ footer :nth-child(3){
     }
     #parrafo{
         display: none;
-    }
-    .seccion-primero{
-        height:150px ;
     }
     #encabezado{
         margin-top: 50px ;
