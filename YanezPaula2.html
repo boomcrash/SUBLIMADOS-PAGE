@@ -21,10 +21,6 @@
 
         }
 
-        #contenedorPrincipal div:hover {
-            transform: scale(1.05);
-            transition: 0.5s;
-        }
 
         .text-center {
             text-align: center;
@@ -62,12 +58,31 @@
             height: auto;
         }
 
-        .seccion-tercer0 {
+        .seccion-tercero {
+            height: auto;
+        }
+
+
+        .seccion-quinto {
             height: auto;
         }
 
         .seccion-cuarto {
-            height: auto;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 450px;
+            background-color: #D4F4DB;
+        }
+
+
+        #slider {
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgb(169, 247, 143);
+
+
         }
 
 
@@ -112,6 +127,44 @@
             font-style: oblique;
             font-weight: bolder;
         }
+
+        .bloque {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .imgcambiante {
+            background-color: #D4F4DB;
+            border-radius: 20px;
+            text-align: center;
+            left:0; right:0; top:0;
+
+
+        }
+
+        .imgcambiante div:nth-child(1) {
+            width: 50%;
+            height: 50%;
+            border-radius: 40px;
+            background-color: #2B2729;
+            margin-right:0;
+            padding: 20px;
+
+        }
+
+        .imgcambiante div:nth-child(2) {
+            padding: 40px;
+            width: 50%;
+            height: 50%;
+            border-radius: 40px;
+            background-color: #2B2729;
+            color: #f0ebeb;
+            font-size:16px;
+            margin-left: 15px;
+        }
+
     </style>
 </head>
 
@@ -181,6 +234,38 @@
 
             </section>
             <section class="seccion-segundo">
+
+                <ul id="enlaces">
+                    <li><a id="enlace1" class="evento" href="#" onmouseover="mostrar(this)">ServiEntrega</a></li>
+                    <li><a id="enlace2" class="evento" href="#" onmouseover="mostrar(this)">Tramaco</a></li>
+                    <li><a id="enlace3" class="evento" href="#" onmouseover="mostrar(this)">MundoExpress</a></li>
+                </ul>
+
+            </section>
+            <section class="seccion-tercero">
+
+                <div id="contenido"></div>
+
+
+
+            </section>
+
+            <section class="seccion-cuarto">
+                <div class="bloque imgcambiante">
+
+                    <div>
+                        <img src="#" class="slider" id="slider" width="200" height="200" alt="evento de imgs">
+                            <br>
+                    </div>
+                    <div>
+                        <p><br><br>¿Qué esperas para obtener ya tu obsequio ideal? Ordena ya, desde la comodidad de
+                        tu casa.
+                        Nosotros te lo llevamos</p><br><br><br></div>
+
+                </div>
+
+            </section>
+            <section class="seccion-quinto">
                 <div id="contenedorPrincipal">
                     <div id="contenedorContenido">
                         <h4 class="text-center">¡SOLICITA YA TU PEDIDO!</h4>
@@ -258,47 +343,23 @@
                     </div>
                 </div>
 
-            </section>
-            <section class="seccion-tercero">
-                <h1 id="titulo-empresas">Empresas que harán de tus envíos una experiencia placentera.</h1>
-                <div id="img-empresas">
-                    <br>
-                    <img src="img/paula-envios.jpg" alt="incio" width="50" height="50">
 
-
-                </div>
+    </section>
 
 
 
-            </section>
-
-            <section class="seccion-cuarto">
-                <ul id="enlaces">
-                    <li><a id="enlace1" class="evento" href="#" onmouseover="mostrar(this)">ServiEntrega</a></li>
-                    <li><a id="enlace2" class="evento" href="#" onmouseover="mostrar(this)">Tramaco</a></li>
-                    <li><a id="enlace3" class="evento" href="#" onmouseover="mostrar(this)">MundoExpress</a></li>
-                </ul>
-            </section>
-
-            <section class="seccion-quinto">
-                <div id="contenido"></div>
+</main>
 
 
-            </section>
-
-
-        </main>
-
-
-        <footer>
-            <h4 class="email">sublimados@enterprise.com</h4>
-            <h4>Todos los derechos reservados@Copytright - Sublimados</h4>
-            <div>
-                <a href="https://www.facebook.com"><img src="img/facebook.png" alt="logo" class="nav-logo"></a>
-                <a href="https://www.twitter.com"><img src="img/twitter.png" alt="logo" class="nav-logo"></a>
-                <a href="https://www.instagram.com"><img src="img/instagram.png" alt="logo" class="nav-logo"></a>
-            </div>
-        </footer>
+    <footer>
+        <h4 class="email">sublimados@enterprise.com</h4>
+        <h4>Todos los derechos reservados@Copytright - Sublimados</h4>
+        <div>
+            <a href="https://www.facebook.com"><img src="img/facebook.png" alt="logo" class="nav-logo"></a>
+            <a href="https://www.twitter.com"><img src="img/twitter.png" alt="logo" class="nav-logo"></a>
+            <a href="https://www.instagram.com"><img src="img/instagram.png" alt="logo" class="nav-logo"></a>
+        </div>
+    </footer>
     </div>
     <script>
 
@@ -466,6 +527,29 @@
         document.getElementById("enlace1").addEventListener('mouseout', eliminar);
         document.getElementById("enlace2").addEventListener('mouseout', eliminar);
         document.getElementById("enlace3").addEventListener('mouseout', eliminar);
+
+
+        window.addEventListener('load', function () {
+            var imagenes = [];
+            imagenes[0] = 'img/paula-enviosinternacionales.jpg';
+            imagenes[1] = 'img/paula-enviosinternacionales2.jpg';
+            imagenes[2] = 'img/paula-enviosinternacionales3.jpg';
+
+            var indiceImagenes = 0;
+            function CambiarImagenes() {
+              //  document.slider.src = imagenes[indiceImagenes];
+              var img =document.getElementById("slider");
+              img.src= imagenes[indiceImagenes];
+
+                
+                if (indiceImagenes < 2) {
+                    indiceImagenes++;
+                } else {
+                    indiceImagenes = 0;
+                }
+            }
+            setInterval(CambiarImagenes, 1000);
+        });
 
 
     </script>
