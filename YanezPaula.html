@@ -229,8 +229,8 @@
             <section class="seccion-tercero">
                 <div class="bloque bloque-dos">
 
-                    <div> <br><img src="img/1.png" class="imgs" width="225" height="200" alt="img6"></div>
-                    <div> <br><img src="img/2.jpg" class="imgs" width="225" height="200" alt="img5"></div>
+                    <div> <br><img src="img/1.png" class=" imagen-change imgs" id="img-uno" width="225" height="200" alt="img6"></div>
+                    <div> <br><img src="img/2.jpg" class=" imagen-change imgs"id="img-dos" width="225" height="200" alt="img5"></div>
                 </div>
             </section>
             <section class="seccion-cuarto">
@@ -257,9 +257,9 @@
             </section>
             <section class="seccion-quinto">
                 <div class="bloque bloque-cuatro">
-                    <div><br><img src="img/estam.gif" class="imgs" width="225" height="200" alt="img"></div>
-                    <div><br><img src="img/termo.jpg" class="imgs" width="225" height="200" alt="img2"></div>
-                    <div><br><img src="img/mochila.jpg" class="imgs" width="225" height="200" alt="img3"></div>
+                    <div><br><img class="imgs" src="img/estam.gif" width="225" height="200" alt="img"></div>
+                    <div><br><img class=" imgs" src="img/termo.jpg" width="225" height="200" alt="img2"></div>
+                    <div><br><img class="imgs"  src="img/mochila.jpg"  width="225" height="200" alt="img3"></div>
                 </div>
             </section>
 
@@ -275,6 +275,33 @@
             </div>
         </footer>
     </div>
+
+    
+    <script>
+        var nodo=document.querySelectorAll(".imagen-change");
+        var img_uno=document.getElementById("img-uno");
+        var img_dos=document.getElementById("img-dos");
+        img_uno.addEventListener("mouseover",() =>cambiarImagen(nodo[0]));
+        img_dos.addEventListener("mouseover",() =>cambiarImagen(nodo[1]));
+
+        img_uno.addEventListener("mouseout",normalizarImagen);
+        img_dos.addEventListener("mouseout",normalizarImagen);
+
+        function cambiarImagen(nodo){
+            if(nodo.id=="img-uno"){
+               
+                img_dos.src="img/paula-mameluco.jpg";
+            }else if(nodo.id=="img-dos"){
+                
+                img_uno.src="img/paula-almohada.jpg"; 
+            }
+        }
+
+        function normalizarImagen(){
+            img_uno.src="img/1.png";
+            img_dos.src="img/2.jpg";
+        }
+    </script>
 
 </body>
 
