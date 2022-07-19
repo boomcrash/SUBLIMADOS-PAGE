@@ -17,12 +17,14 @@
         textarea{
             border-radius: 5px;
         }
-        input[type="submit"]{
+        input[type="submit"],input[type="reset"]
+        {
             background-color: #2e2e2e;
             color: white;
             border-radius: 100px;
             margin-top: 13px;
             width: fit-content;
+            margin-left: 10px;
            
         }
 
@@ -30,6 +32,12 @@
             background-color: white;
             font-weight: bold;
             color: black;
+        }
+
+        input[type="reset"]:hover{
+            background-color: red;
+            font-weight: bold;
+            color: white;
         }
 
         input[type="text"]{
@@ -79,6 +87,7 @@
             animation-duration: 5s;
             animation-iteration-count: 1;
         }
+
 
 
         @keyframes coche{
@@ -199,7 +208,7 @@
                                  </div>
                              </div>
                              <div > <!-- CHECK BOX -->
-                                <label >Pedidos:</label>
+                                <label >Productos:</label>
                                 <div style="display: grid; grid-template-columns: 0.2fr 1fr; width: 100%; justify-content: start;">
                                     <input type="checkbox" value="Carton" name="env"/>Camisas
                                     <input type="checkbox" value="Espumafon" name="env"/>Tazas
@@ -239,10 +248,11 @@
                          </div>
                          <label>Ingrese Referencias del destino del producto:</label>
                          <textarea name="referencias" id="area_referencias"></textarea>
-                         <div style="display: flex; align-items: center; justify-content: center;">
+                         <div style="display: flex; align-items: flex-end; justify-content: center;">
                             <input type="submit">
+                            <input type="reset">
                          </div>
-                         
+                         <p style="color: white; font-size: 10pt;">Nota: La cedula debe empezar con los 2 primeros digitos de tu ciudad-provincia ecuatoriana y el numero debe empezar con "09"</p>
                          
                     </form>
                 </div>
@@ -261,10 +271,11 @@
         </footer>
     </div>
         <script>
-        var patron_celular=/^[09]+[0-9]{8}$/g;
-        var patron_cedula=/^[0-2]+[0-9]{9}$/g;
+        var valido=true;
+        var patron_celular=/^[0]+[9]+[0-9]{8}$/i; //el celular debe empezar con 09
+        var patron_cedula=/^[0-2]+[0-2]+[0-9]{8}$/i;//las cedulas deben ser euatorianas
         var patron_correo= /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        var patron_postal=/^[0-9]{6}$/g;
+        var patron_postal=/^[0-9]{6}$/i;
         
         var myForm=document.getElementById("myForm");
         myForm.addEventListener("submit",enviar_data);
@@ -276,7 +287,8 @@
         var productos=document.getElementsByName("env");
         var ciudades=document.getElementById("ciudad");
         var referencia=document.getElementById("area_referencias");
-
+        let arreglo_errores=[];
+        
         cedula.setAttribute("placeholder","0912318942");
         celular.setAttribute("placeholder","0933312143");
         correo.setAttribute("placeholder","test@gmail.com");
@@ -294,11 +306,15 @@
         
         
         function enviar_data(e){
-            let valido=true;
-            if(!patron_cedula.test(cedula.value)){ colorear(cedula);valido=false;}
-            if(!patron_celular.test(celular.value)){colorear(celular);valido=false;}
-            if(!patron_postal.test(postal.value)){colorear(postal); valido=false;}
-            if(!patron_correo.test(correo.value)){colorear(correo); valido=false;}
+            
+            if(!patron_cedula.test(cedula.value)){ colorear(cedula);valido=false; arreglo_errores.push("cedula");}
+            
+            if(!patron_celular.test(celular.value)){colorear(celular);valido=false; console.log(celular.value); arreglo_errores.push("celular");}
+           
+            if(!patron_postal.test(postal.value)){colorear(postal); valido=false; arreglo_errores.push("postal");}
+           
+            if(!patron_correo.test(correo.value)){colorear(correo); valido=false; arreglo_errores.push("correo");}
+            
             let auxOption=false;
             for(option of envio){
                 if(option.checked){
@@ -311,23 +327,32 @@
                     auxCheck=true; 
                 }
             }
-           
-            if(auxOption==false){valido=false;}
-            if(auxCheck==false){valido=false;}
-            if(referencia.value.length==0){colorear(referencia);valido=false;}
+           alert(cedula.value);
+            if(auxOption==false){valido=false; arreglo_errores.push("tipo_envio");}
+            if(auxCheck==false){valido=false; arreglo_errores.push("productos");}
+            if(referencia.value.length==0){colorear(referencia);valido=false; arreglo_errores.push("referencias");}
 
             if(ciudades.selectedIndex==0){
                 valido=false;
+                arreglo_errores.push("ciudad");
             }
 
             
-            if(valido!=false){
+            if(valido==true){
                 alert("SU FORMULARIO SE ENVIO EXITOSAMENTE");
             }else{
-                valido=true;
-                alert("ERROR: RELLENE LOS CAMPOS COMO SE INDICA.");
+                
+                alert("ERROR: RELLENE CORRECTAMENTE LOS SIGUIENTES CAMPOS.");
+                let errores;
+                for(dato of arreglo_errores){
+                    errores+=dato+" ";
+                }
+                errores=errores.replace("undefined","");
+                alert(errores);
+                arreglo_errores=[];
                 e.preventDefault();
             }
+            valido=true;
         }
 
         function colorear(elemento){
