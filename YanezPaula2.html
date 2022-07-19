@@ -318,12 +318,10 @@
                                 </div>
 
                                 <div>
-                                    <label>¿Deseas ser accionista?:</label>
-                                    Si <input type="checkbox" name="acc1" value="1" id="acc1"
+                                    <label>Recibir información por correo:</label>
+                                    <input type="checkbox" name="acc1" value="1" id="acc1"
                                         class="formItem acc principal" />
-                                    No<input type="checkbox" name="acc2" value="2" id="acc2" class="formItem acc" />
-                                    Necesito más información <input type="checkbox" name="acc3" value="3" id="acc3"
-                                        class="formItem acc" />
+                                    
 
 
                                 </div>
@@ -454,26 +452,6 @@
             if (!sel) {
                 valido = false;
                 mensaje("Debe seleccionar una opcion", radiosVia[0]);
-            }
-
-
-            //validacion checkboxs
-
-
-            sel = false;
-            cont = 0;
-            for (let i = 0; i < checkboxsAccionista.length; i++) {
-                if (checkboxsAccionista[i].checked) {
-                    cont++;
-                    sel = true;
-                    if (checkboxsAccionista[i].value === '1') {
-                        alert("Ha seleccionado su opción");
-                    }
-                }
-            }
-            if (!sel) {
-                valido = false;
-                mensaje("Debe seleccionar una opción", checkboxsAccionista[0]);
             }
 
 
