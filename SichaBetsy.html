@@ -367,9 +367,9 @@
         <main>
             <section class="seccion-primero">
                 <div id="arriba" class="dividir-seccion-uno">                   
-                    <div > 
-                        <div id="introduccion">                            
-                            <h2 style="margin: 5px 0 0 0; font-size: 24px;" id="INT" class="Titulos"> <b> PRODUCTOS DISPONIBLES </b> </h2> <br>                         
+                    <div id="contenido"> 
+                        <div id="introduccion" onclick="cambiarContenido(this)" >                            
+                            <h2 style="margin: 45px 0 0 0; font-size: 24px;" id="INT" class="Titulos"> <b> PRODUCTOS DISPONIBLES </b> </h2> <br>                         
                             <p style="margin: 5px 0 0 0;"> A Continuación presentamos todos los productos disponibles en  <br>
                                 Sublimados Superium brindandoles comodidad, variedad y opciones innovadoras  <br>
                                 para su elección, ofreciendoles una experiencia única y satisfactoria con nuestros productos.   <br>
@@ -392,17 +392,18 @@
                                     <dd> Porcelana </dd>
                                     <dd> Cerámica</dd>
                                 </dl>
-
+                                <img style="width: 5%; height: 20%; border-radius: 10px; " src="img/Click.png" alt="clickAqui">
                         </div>
                     </div>
                     <div class="imagenHvr">
                         <figure style="float: right;">
-                            <img style="border-radius: 20px;" src="img/LogoProducto.PNG">
-                            <figcaption style="text-align: right; font-size: 9px;"> Sublimados Superium </figcaption>
+                            <img id="lg" onmouseover="cambiarImagen(this)" onmouseout="inicio()" style="border-radius: 20px;" src="img/LogoProducto.PNG">
+                            <figcaption style="text-align: right; font-size: 9px; padding-top: 10px;"> Sublimados Superium </figcaption>
                         </figure>
                     </div>
                 </div>
             </section>
+            
             <section class="seccion-segundo">
                 <div class="dividir-seccion-dos">
                     <div>
@@ -503,5 +504,34 @@
         </footer>
     </div>
     
+    <script type="text/javascript">
+        
+        var div = document.querySelector("#contenido");
+        
+        function cambiarImagen(){
+            let img = document.getElementById("lg");
+            img.setAttribute("src","img/Sublimados.PNG");
+        }
+        function inicio(){
+            let img = document.getElementById("lg");
+            img.setAttribute("src","img/LogoProducto.PNG")
+        }
+        function cambiarContenido(){
+            let contenido = '';
+            let cont = document.querySelector("#introduccion")
+
+            contenido ="Recuerda revisar la variedad de nuestros productos para mejor elección al momento de comprar, Tenemos diferentes tipos de pago, tipos de entregas y muchas cosas más.";
+            cont.innerText=contenido;
+            cont.style.backgroundColor="#FFFFFF";
+            cont.style.textAlign="justify";
+            cont.style.padding="20px";
+            cont.style.margin="20px";
+            cont.style.fontSize="20pt";
+            cont.style.fontWeight="bold";
+            cont.style.fontFamily="'Inter', sans-serif";
+        
+            div.appendChild(cont);   
+        }
+    </script>
 </body>
 </html>
