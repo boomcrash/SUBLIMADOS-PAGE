@@ -266,7 +266,7 @@
                         }
 
                         /* validación  radio button-género */
-                     /*    var selecionado = false;
+                        var selecionado = false;
                         for(let i =0; i <radiosGenero.length; i++){
                             if(radiosGenero[i].checked){
                                 radio = selecionado;
@@ -276,7 +276,7 @@
                         if(!selecionado){
                             valido = false;
                             mostrar("Debe seleccionar un géneo", radiosGenero[0]);
-                        } */
+                        }
 
                         /* validación select-estado civil */
                         if (selectEstado.value === null || selectEstado.value === '0') {
@@ -285,7 +285,7 @@
                         }
 
                         /* Validar de checkbox-intereses */
-                       /*  selecionado = false;
+                       selecionado = false;
                         contador=0;
                         for(let i=0; i<checkboxSuscripcion.length; i++){
                             if(checkboxSuscripcion[i].checked){
@@ -300,7 +300,7 @@
                         if(contador<2){
                             valido = false;
                             mostrar("Seleccione al menos dos intereses", checkboxSuscripcion[0]);
-                        } */
+                        }
 
                         /* validación fecha de nacimiento-date*/
                         var fecha = txtFecha.value;
@@ -312,8 +312,10 @@
                             alert("La fecha de nacimiento no puede ser mayor que el año actual");
                         }
                         
-                        if(!valido==true){
-                            e.preventDefault();   
+                        if(valido==true){
+                            alert("Has enviado exitosamente tu formulario") 
+                        }else{
+                            e.preventDefault();  
                         }
                         
                     }
