@@ -8,13 +8,10 @@ body{
 }
 /*estilos del header y titulo*/
 header{
-    display: flex;
-    justify-content: center;
-
-    border-bottom: 1px solid var(--Black);
-    background-color: white;
     width: 100%;
-
+    top: 0;
+    position: sticky;
+    z-index: 1;
 }
 .titulo{
     font-size: 16px;
@@ -43,6 +40,34 @@ nav{
     width: 90%;
 }
 
+li{
+    list-style: none;
+}
+
+li > ul{
+    list-style: none;
+    left: 0;
+    display: none;
+}
+
+li:hover > ul{
+    display: inline;
+    
+}
+
+
+li:hover > ul > a{
+    background-color: #9EE9A1;
+    color: #2B2729;
+    font-weight: bold;
+}
+
+
+li ul a:nth-child(1){
+    margin-top:  -7px;
+    margin-bottom: 4px;
+}
+
 .nav-botones{
     display: flex;
     flex-direction: row;
@@ -50,6 +75,11 @@ nav{
     margin-bottom: 10px;
     margin-top: 10px;
 }
+
+.submenu{
+    font-size: 14px;
+}
+
 .nav-botones a{
     text-decoration: none;
     color: white;
@@ -62,11 +92,20 @@ nav{
     display: flex;
     justify-content: center;
 }
+.nav-botones ul .submenu:hover {
+    background-color: #9EE9A1;
+    transform: translate(0px,2px);
+    transform: scale(1.1,1.1);
+    box-shadow: 0 0 20px #2B2729,
+                0 0 40px #2B2729;
+}
 .nav-botones a:hover{
     background-color: black;
     transform: translate(0px,2px);
     transform: scale(1.1,1.1);
 }
+
+
 .nav-logo{
     width: 42px;
     height: 40px;
@@ -191,6 +230,7 @@ footer :nth-child(3){
         flex-direction: column;
         justify-content: center;
     }
+
 }
 @media (max-width:500px)
 {
@@ -202,11 +242,11 @@ footer :nth-child(3){
         margin-top: 20px ;
     }
 
-    .seccion-primero{
-        height:250px ;
-    }
     #parrafo{
         width: 350px; color: #4B4B4B; text-align: justify;
+    }
+    .seccion-primero{
+        height: auto;
     }
 }
 @media (max-width:450px)
@@ -227,9 +267,6 @@ footer :nth-child(3){
     }
     #parrafo{
         display: none;
-    }
-    .seccion-primero{
-        height:150px ;
     }
     #encabezado{
         margin-top: 50px ;
